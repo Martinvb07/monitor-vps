@@ -4,6 +4,7 @@ frontend/node_modules/
 
 # ── Variables de entorno (NUNCA subir) ────────
 .env
+.env.example
 .env.local
 .env.*.local
 frontend/.env.local

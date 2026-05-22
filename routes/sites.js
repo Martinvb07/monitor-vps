@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
   // Reiniciar monitor con nuevos sitios
   const monitor = require('../services/monitor');
   monitor.reloadSites(sites);
+  monitor.runChecks().catch(() => {});
 
   res.status(201).json(site);
 });

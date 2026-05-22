@@ -22,7 +22,7 @@ router.get('/comparar', (req, res) => {
   res.json({ latest, history });
 });
 
-router.post('/check', async (req, res) => {
+router.post('/status/check', async (req, res) => {
   try {
     const { runChecks } = require('../services/monitor');
     const results = await runChecks();

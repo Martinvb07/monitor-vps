@@ -20,6 +20,36 @@
 
 ---
 
+## Capturas
+
+<div align="center">
+
+<img src="frontend/public/img-readme/img1.jpg" alt="Dashboard — Estado del sistema" width="100%"/>
+
+*// 001 ESTADO_DEL_SISTEMA — chequeo en tiempo real con latencia, HTTP, SSL y IP*
+
+<br/>
+
+<img src="frontend/public/img-readme/img2.jpg" alt="Monitor — Historial y latencia" width="100%"/>
+
+*// 002 HISTORIAL — uptime 100% y gráfica de latencia de las últimas 48 lecturas*
+
+<br/>
+
+<img src="frontend/public/img-readme/im3.jpg" alt="DevOps — Deploys y GitHub" width="100%"/>
+
+*// 006 DEPLOYS — commits recientes de GitHub con deploy en un click*
+
+<br/>
+
+<img src="frontend/public/img-readme/img4.jpg" alt="DevOps — Terminal SSH" width="100%"/>
+
+*// 007 TERMINAL_SSH — terminal completa en el browser vía WebSocket + xterm.js*
+
+</div>
+
+---
+
 ## ¿Qué es MARTIN.HQ?
 
 **MARTIN.HQ** es un dashboard de monitoreo personal diseñado para tener visibilidad total sobre un servidor VPS y los sitios web que corre, directamente desde el browser — sin depender de herramientas externas ni servicios de terceros.

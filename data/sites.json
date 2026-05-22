@@ -1,0 +1,22 @@
+[
+  {
+    "id": "mesoft",
+    "url": "https://mesoft.store",
+    "nombre": "MeSoft"
+  },
+  {
+    "id": "agro",
+    "url": "https://agromanager.pro",
+    "nombre": "AgroManager"
+  },
+  {
+    "id": "cancha",
+    "url": "https://reservatucancha.site",
+    "nombre": "ReservaTuCancha"
+  },
+  {
+    "id": "cuscus-hats",
+    "url": "https://cuscushats.com/",
+    "nombre": "Cuscus Hats"
+  }
+]
