@@ -1,0 +1,38 @@
+{
+  "name": "MARTIN.HQ — Monitor",
+  "short_name": "MARTIN.HQ",
+  "description": "Panel de monitoreo de servidores y VPS",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#111110",
+  "theme_color": "#111110",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Estado del sistema",
+      "url": "/dashboard",
+      "description": "Ver estado de todos los sitios"
+    },
+    {
+      "name": "Terminal SSH",
+      "url": "/dashboard/terminal",
+      "description": "Abrir terminal SSH del VPS"
+    },
+    {
+      "name": "Alertas",
+      "url": "/dashboard/alertas",
+      "description": "Ver alertas activas"
+    }
+  ]
+}

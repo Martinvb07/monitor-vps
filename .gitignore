@@ -1,0 +1,60 @@
+# ── Dependencias ──────────────────────────────
+node_modules/
+frontend/node_modules/
+
+# ── Variables de entorno (NUNCA subir) ────────
+.env
+.env.local
+.env.*.local
+frontend/.env.local
+frontend/.env.*.local
+
+# ── Datos persistentes del monitor ────────────
+# Contienen IPs, alertas e historial real del VPS
+data/history.json
+data/alerts.json
+data/deploys.json
+data/notes.json
+data/2fa.json
+
+# ── Next.js build ─────────────────────────────
+frontend/.next/
+frontend/out/
+
+# ── TypeScript / tsx cache ────────────────────
+*.tsbuildinfo
+frontend/.tsbuildinfo
+frontend/tsconfig.tsbuildinfo
+.tsx-cache/
+
+# ── Logs ──────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── OS ────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Editores e IDEs ───────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Claude Code ───────────────────────────────
+.claude/
+
+# ── Misc ──────────────────────────────────────
+.cache/
+.tmp/
+*.pid
