@@ -17,6 +17,7 @@ data/alerts.json
 data/deploys.json
 data/notes.json
 data/2fa.json
+backend/data/
 
 # ── Next.js build ─────────────────────────────
 frontend/.next/
