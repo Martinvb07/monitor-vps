@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { useToast } from '@/components/Toast';
 
+type ToastFn = (msg: string, type?: 'success' | 'error' | 'warn' | 'info') => void;
+
 export default function AjustesPage() {
   const { toast } = useToast();
   const [tfaEnabled, setTfaEnabled] = useState(false);
@@ -216,6 +218,133 @@ export default function AjustesPage() {
           </pre>
         </div>
       </div>
+
+      {/* Push Notifications */}
+      <PushSection toast={toast} />
     </>
   );
+}
+
+function PushSection({ toast }: { toast: ToastFn }) {
+  const [supported, setSupported]   = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [vapidKey, setVapidKey]     = useState('');
+  const [loading, setLoading]       = useState(false);
+  const [testing, setTesting]       = useState(false);
+
+  useEffect(() => {
+    const ok = 'serviceWorker' in navigator && 'PushManager' in window;
+    setSupported(ok);
+    if (!ok) return;
+
+    // Register SW if not already registered
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+
+    api.pushVapidKey()
+      .then((d) => setVapidKey(d.publicKey))
+      .catch(() => {});
+
+    navigator.serviceWorker.ready.then((reg) =>
+      reg.pushManager.getSubscription().then((sub) => setSubscribed(!!sub))
+    );
+  }, []);
+
+  async function handleSubscribe() {
+    setLoading(true);
+    try {
+      const reg = await navigator.serviceWorker.ready;
+      const sub = await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(vapidKey),
+      });
+      await api.pushSubscribe(sub.toJSON());
+      setSubscribed(true);
+      toast('Notificaciones push activadas en este dispositivo');
+    } catch (e) {
+      toast(e instanceof Error ? e.message : 'Error al activar push', 'error');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleUnsub() {
+    setLoading(true);
+    try {
+      const reg = await navigator.serviceWorker.ready;
+      const sub = await reg.pushManager.getSubscription();
+      if (!sub) return;
+      await sub.unsubscribe();
+      await api.pushUnsubscribe(sub.endpoint).catch(() => {});
+      setSubscribed(false);
+      toast('Desuscrito de notificaciones push', 'warn');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleTest() {
+    setTesting(true);
+    try { await api.pushTest(); toast('Notificación de prueba enviada'); }
+    catch (e) { toast(e instanceof Error ? e.message : 'Error', 'error'); }
+    finally { setTesting(false); }
+  }
+
+  return (
+    <div className="settings-section reveal in d2" style={{ marginTop: 40 }}>
+      <div className="settings-section-title">// notificaciones push</div>
+      <div className="settings-card">
+        {!supported ? (
+          <p style={{ color: 'var(--muted)', fontSize: 13 }}>Tu navegador no soporta Push Notifications.</p>
+        ) : !vapidKey ? (
+          <div>
+            <p style={{ color: 'var(--muted)', fontSize: 13, marginBottom: 10 }}>
+              Push no configurado. Genera claves VAPID y agrégalas al <code>.env</code> del VPS:
+            </p>
+            <pre className="deploy-terminal-output" style={{ background: '#0d0d0d', padding: '12px 16px', fontSize: 11, maxHeight: 'none' }}>
+              {`npx web-push generate-vapid-keys\n\n# Luego en .env:\nVAPID_PUBLIC_KEY=Bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nVAPID_PRIVATE_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`}
+            </pre>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div className="settings-row">
+              <div>
+                <div className="settings-label">Estado en este dispositivo</div>
+                <div className="settings-value" style={{ color: subscribed ? 'var(--up)' : 'var(--muted)', fontWeight: 600 }}>
+                  {subscribed ? '● Activo' : '○ Inactivo'}
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                {subscribed ? (
+                  <button className="btn-deploy" style={{ background: 'var(--down)' }} onClick={handleUnsub} disabled={loading}>
+                    <span>{loading ? '...' : 'Desactivar'}</span><span>→</span>
+                  </button>
+                ) : (
+                  <button className="btn-deploy" onClick={handleSubscribe} disabled={loading}>
+                    <span>{loading ? 'Activando...' : 'Activar notificaciones'}</span><span>→</span>
+                  </button>
+                )}
+              </div>
+            </div>
+            {subscribed && (
+              <div>
+                <button className="btn-check-now" onClick={handleTest} disabled={testing}>
+                  {testing ? 'Enviando...' : 'Enviar notificación de prueba →'}
+                </button>
+                <p style={{ fontSize: 11, color: 'var(--muted)', marginTop: 8 }}>
+                  Recibirás alertas críticas (sitio caído, SSL expirando) en este dispositivo aunque el panel esté cerrado.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function urlBase64ToUint8Array(base64String: string): Uint8Array {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64  = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const raw     = window.atob(base64);
+  return Uint8Array.from([...raw].map((c) => c.charCodeAt(0)));
 }

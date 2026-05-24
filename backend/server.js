@@ -57,7 +57,12 @@ app.use('/api/notes',   require('./routes/notes'));
 app.use('/api/logs',    require('./routes/logs'));
 app.use('/api/ports',   require('./routes/ports'));
 app.use('/webhook',     require('./routes/webhook'));
-app.use('/api/system',  require('./routes/system'));
+app.use('/api/system',   require('./routes/system'));
+app.use('/api/servers',  require('./routes/servers'));
+app.use('/api/push',     require('./routes/push'));
+app.use('/api/envfiles',  require('./routes/envfiles'));
+app.use('/api/nginx',     require('./routes/nginx'));
+app.use('/api/snippets',  require('./routes/snippets'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -92,11 +97,22 @@ wss.on('connection', (ws, req) => {
   ws.on('error', () => ws.close());
 });
 
-// Broadcast después de cada check del monitor
+// Broadcast + push notifications cuando un sitio cae
+const { sendPush } = require('./routes/push');
+const downTracker = new Set();
+
 monitor.emitter.on('update', ({ sites, alerts }) => {
   const msg = JSON.stringify({ type: 'update', sites, alerts });
-  wss.clients.forEach((ws) => {
-    if (ws.readyState === ws.OPEN) ws.send(msg);
+  wss.clients.forEach((ws) => { if (ws.readyState === ws.OPEN) ws.send(msg); });
+
+  sites.forEach((s) => {
+    if (!s.online && !downTracker.has(s.id)) {
+      downTracker.add(s.id);
+      sendPush(`⚠ ${s.nombre} caído`, `HTTP ${s.status || 0} · ${s.url}`, { url: '/' });
+    } else if (s.online && downTracker.has(s.id)) {
+      downTracker.delete(s.id);
+      sendPush(`✓ ${s.nombre} recuperado`, `Volvió a responder correctamente`);
+    }
   });
 });
 

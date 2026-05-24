@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { getToken } from '@/lib/auth';
+import { api, type RemoteServer } from '@/lib/api';
 import '@xterm/xterm/css/xterm.css';
 
 type ConnStatus = 'idle' | 'connecting' | 'connected' | 'disconnected' | 'error';
@@ -13,6 +14,12 @@ export default function TerminalPage() {
   const wsRef = useRef<WebSocket | null>(null);
   const [status, setStatus] = useState<ConnStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [servers, setServers] = useState<RemoteServer[]>([]);
+  const [selectedServer, setSelectedServer] = useState<string>('main'); // 'main' = servidor principal
+
+  useEffect(() => {
+    api.servers().then(setServers).catch(() => {});
+  }, []);
 
   // Initialize xterm on mount
   useEffect(() => {
@@ -30,6 +37,7 @@ export default function TerminalPage() {
         fontSize: 13,
         lineHeight: 1.4,
         cursorBlink: true,
+        cursorStyle: 'block',
         theme: {
           background: '#111110',
           foreground: '#f0ece2',
@@ -71,14 +79,20 @@ export default function TerminalPage() {
         }).catch(() => {});
       });
 
-      // Ctrl+Shift+V = pegar
-      containerRef.current.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && e.shiftKey && e.key === 'V') {
-          e.preventDefault();
-          navigator.clipboard.readText().then((text) => {
-            if (text && termRef.current) termRef.current.paste(text);
-          }).catch(() => {});
+      // Ctrl+Alt+C = copiar / Ctrl+Alt+V = pegar
+      term.attachCustomKeyEventHandler((e) => {
+        if (e.ctrlKey && e.altKey && e.key === 'c') {
+          const sel = term.getSelection();
+          if (sel) navigator.clipboard.writeText(sel).catch(() => {});
+          return false;
         }
+        if (e.ctrlKey && e.altKey && e.key === 'v') {
+          navigator.clipboard.readText().then((text) => {
+            if (text) term.paste(text);
+          }).catch(() => {});
+          return false;
+        }
+        return true;
       });
 
       term.writeln('\x1b[90m╔══════════════════════════════════════╗\x1b[0m');
@@ -131,10 +145,11 @@ export default function TerminalPage() {
       return;
     }
 
-    // Connect WebSocket (puerto separado para no interferir con Next.js HMR)
+    // Connect WebSocket con server selector
     const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const wsPort = process.env.NEXT_PUBLIC_WS_PORT || '3002';
-    const ws = new WebSocket(`${proto}//${window.location.hostname}:${wsPort}?token=${wsToken}`);
+    const serverParam = selectedServer !== 'main' ? `&server=${selectedServer}` : '';
+    const ws = new WebSocket(`${proto}//${window.location.hostname}:${wsPort}?token=${wsToken}${serverParam}`);
     wsRef.current = ws;
 
     ws.onopen = () => {
@@ -184,7 +199,12 @@ export default function TerminalPage() {
     termRef.current?.writeln('\r\n\x1b[90m[Desconectado]\x1b[0m');
   }, []);
 
-  const sshHost = process.env.NEXT_PUBLIC_SSH_HOST || '—';
+  const sshHost = selectedServer === 'main'
+    ? (process.env.NEXT_PUBLIC_SSH_HOST || '—')
+    : (servers.find((s) => s.id === selectedServer)?.host || '—');
+  const sshUser = selectedServer === 'main'
+    ? (process.env.NEXT_PUBLIC_SSH_USER || 'root')
+    : (servers.find((s) => s.id === selectedServer)?.user || 'root');
 
   const statusLabel: Record<ConnStatus, string> = {
     idle: 'Desconectado',
@@ -214,10 +234,30 @@ export default function TerminalPage() {
 
       <div className="term-toolbar reveal in">
         <div className="term-info">
+          {/* Selector de servidor — siempre visible si hay remotes o no está conectado */}
+          {status !== 'connected' && (
+            <>
+              <span className="term-info-label">Servidor</span>
+              <select
+                value={selectedServer}
+                onChange={(e) => setSelectedServer(e.target.value)}
+                style={{
+                  background: 'var(--paper-2)', border: '1px solid var(--rule)',
+                  fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink)',
+                  padding: '3px 8px', cursor: 'pointer', outline: 'none',
+                }}
+              >
+                <option value="main">{process.env.NEXT_PUBLIC_SSH_HOST || 'VPS Principal'}</option>
+                {servers.map((s) => (
+                  <option key={s.id} value={s.id}>{s.name} ({s.host})</option>
+                ))}
+              </select>
+            </>
+          )}
           <span className="term-info-label">Host</span>
           <span className="term-info-value">{sshHost}</span>
           <span className="term-info-label">Usuario</span>
-          <span className="term-info-value">{process.env.NEXT_PUBLIC_SSH_USER || 'root'}</span>
+          <span className="term-info-value">{sshUser}</span>
         </div>
         <div className="term-actions">
           {errorMsg && (

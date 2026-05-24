@@ -45,7 +45,7 @@ export default function SeguridadPage() {
       ) : (
         <>
           {/* Stats */}
-          <div className="hist-stats reveal in" style={{ gridTemplateColumns: 'repeat(4,1fr)' }}>
+          <div className="hist-stats reveal in" style={{ '--cols': 4 } as React.CSSProperties}>
             {[
               { label: 'IPs bloqueadas',     val: data?.ipsBlockeadas ?? '—',     crit: (data?.ipsBlockeadas ?? 0) > 0 },
               { label: 'Intentos de login',  val: data?.intentosFallidos ?? '—',  crit: (data?.intentosFallidos ?? 0) > 5 },

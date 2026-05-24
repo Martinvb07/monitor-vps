@@ -8,9 +8,10 @@ const fs = require('fs');
 const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '../data');
-const HISTORY_FILE = path.join(DATA_DIR, 'history.json');
-const ALERTS_FILE = path.join(DATA_DIR, 'alerts.json');
-const SITES_FILE = path.join(DATA_DIR, 'sites.json');
+const HISTORY_FILE  = path.join(DATA_DIR, 'history.json');
+const ALERTS_FILE   = path.join(DATA_DIR, 'alerts.json');
+const SITES_FILE    = path.join(DATA_DIR, 'sites.json');
+const DAILY_FILE    = path.join(DATA_DIR, 'daily.json');
 
 const DEFAULT_SITES = [
   { id: 'mesoft', url: 'https://mesoft.store',         nombre: 'MeSoft' },
@@ -24,8 +25,9 @@ let SITES = (() => {
 const MAX_HISTORY = 48;
 
 let _history = loadJSON(HISTORY_FILE, {});
-let _alerts = loadJSON(ALERTS_FILE, []);
-let _latest = {};
+let _alerts  = loadJSON(ALERTS_FILE, []);
+let _daily   = loadJSON(DAILY_FILE, {});  // { siteId: [{ date, uptime, checks, latAvg, latMin, latMax }] }
+let _latest  = {};
 
 function loadJSON(file, def) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return def; }
@@ -167,6 +169,26 @@ function processAlerts(result) {
   saveJSON(ALERTS_FILE, _alerts);
 }
 
+function aggregateDaily(results) {
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  for (const r of results) {
+    if (!_daily[r.id]) _daily[r.id] = [];
+    let day = _daily[r.id].find((d) => d.date === today);
+    if (!day) {
+      day = { date: today, checks: 0, up: 0, latSum: 0, latMin: Infinity, latMax: 0 };
+      _daily[r.id].push(day);
+    }
+    day.checks++;
+    if (r.online) day.up++;
+    day.latSum += r.latencia;
+    if (r.latencia < day.latMin) day.latMin = r.latencia;
+    if (r.latencia > day.latMax) day.latMax = r.latencia;
+    // Mantener solo 35 días
+    if (_daily[r.id].length > 35) _daily[r.id] = _daily[r.id].slice(-35);
+  }
+  saveJSON(DAILY_FILE, _daily);
+}
+
 async function runChecks() {
   const results = await Promise.all(SITES.map(checkSite));
 
@@ -178,6 +200,7 @@ async function runChecks() {
     processAlerts(r);
   }
 
+  aggregateDaily(results);
   saveJSON(HISTORY_FILE, _history);
   emitter.emit('update', { sites: results, alerts: _alerts });
   return results;
@@ -185,6 +208,31 @@ async function runChecks() {
 
 function getLatest() { return Object.values(_latest); }
 function getHistory(id) { return id ? (_history[id] || []) : _history; }
+function getDaily(id) {
+  const raw = id ? (_daily[id] || []) : _daily;
+  if (id) {
+    return raw.map((d) => ({
+      date:    d.date,
+      uptime:  d.checks ? Math.round((d.up / d.checks) * 100) : 0,
+      checks:  d.checks,
+      latAvg:  d.checks ? Math.round(d.latSum / d.checks) : 0,
+      latMin:  d.latMin === Infinity ? 0 : d.latMin,
+      latMax:  d.latMax,
+    }));
+  }
+  const result = {};
+  for (const [sid, days] of Object.entries(raw)) {
+    result[sid] = days.map((d) => ({
+      date:    d.date,
+      uptime:  d.checks ? Math.round((d.up / d.checks) * 100) : 0,
+      checks:  d.checks,
+      latAvg:  d.checks ? Math.round(d.latSum / d.checks) : 0,
+      latMin:  d.latMin === Infinity ? 0 : d.latMin,
+      latMax:  d.latMax,
+    }));
+  }
+  return result;
+}
 function getAlerts() { return _alerts; }
 function resolveAlert(id) {
   const a = _alerts.find((x) => x.id === id);
@@ -199,4 +247,4 @@ function start() {
 
 function reloadSites(newSites) { SITES = newSites; }
 
-module.exports = { start, runChecks, getLatest, getHistory, getAlerts, resolveAlert, reloadSites, emitter, get SITES() { return SITES; } };
+module.exports = { start, runChecks, getLatest, getHistory, getDaily, getAlerts, resolveAlert, reloadSites, emitter, get SITES() { return SITES; } };

@@ -2,8 +2,10 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { api, type Site } from '@/lib/api';
+import { useConfirm } from '@/components/Confirm';
 
 export default function SitiosPage() {
+  const confirm = useConfirm();
   const [sites, setSites]     = useState<Site[]>([]);
   const [loading, setLoading] = useState(true);
   const [url, setUrl]         = useState('');
@@ -35,7 +37,7 @@ export default function SitiosPage() {
   }
 
   async function handleDelete(id: string, nombre: string) {
-    if (!confirm(`¿Eliminar ${nombre}? Se borrarán sus datos del historial.`)) return;
+    if (!await confirm({ message: `¿Eliminar ${nombre}? Se borrarán sus datos del historial.`, danger: true, confirmLabel: 'Eliminar', title: 'Eliminar sitio' })) return;
     setDeleting(id);
     try {
       await api.deleteSite(id);

@@ -63,74 +63,109 @@ El sistema verifica automáticamente cada 30 segundos el estado de tus sitios y 
 ## ¿Qué podés hacer con MARTIN.HQ?
 
 ### 📡 Monitoreo de sitios web
-Seguimiento continuo de cada sitio con chequeo automático cada 30 segundos. Cada sitio muestra en tiempo real:
-- **Estado** — Online / Down con dot animado
-- **Latencia HTTP** — En milisegundos, con indicadores de alerta (>800ms: warn, >2000ms: crítico)
+Seguimiento continuo de cada sitio con chequeo automático cada 30 segundos:
+- **Estado** — Online / Down con dot animado en tiempo real
+- **Latencia HTTP** — En milisegundos, alertas a >800ms y >2000ms
 - **Código HTTP** — Status code de la respuesta
-- **SSL** — Días restantes hasta el vencimiento del certificado, con alertas automáticas a los 30 y 14 días
+- **SSL** — Días restantes, alertas automáticas a los 30 y 14 días
 - **IP** — Dirección IP resuelta vía DNS
+- Grid dinámico: 4 sitios → 2×2, 3 sitios → 3 columnas
+
+### 📊 CPU / RAM / Disco en tiempo real
+Widget de recursos del servidor integrado en el dashboard principal:
+- CPU % basado en load average
+- RAM usada / total en MB
+- Disco / (raíz) usado / total
+- Uptime del servidor
+- Actualización automática cada 10 segundos
 
 ### 🔴 Sistema de alertas
-Las alertas se generan automáticamente cuando un sitio cae, tiene latencia alta o el SSL está por vencer. Se auto-resuelven cuando el sitio vuelve a estar en buen estado. Incluye:
-- Filtros por estado (activas / resueltas / todas) y severidad (crítica / warning)
-- Historial completo de las últimas 200 alertas
-- Botón de resolución manual con toast de confirmación
+Alertas automáticas con auto-resolución:
+- Filtros por estado y severidad (crítica / warning)
+- Historial de las últimas 200 alertas
+- Resolución manual con toast de confirmación
+- Push notifications al celu cuando un sitio cae (PWA)
+- Badge en el favicon con contador de alertas activas
 
 ### 📈 Historial y uptime
-Gráficas de latencia de las últimas 24 entradas por sitio y barra de uptime visual con los últimos 60 checks. Permite identificar patrones de caídas y picos de latencia a lo largo del tiempo.
+- Vista **48h** — gráfica de latencia por sitio, stats avg/min/max
+- Vista **30 días** — gráfica de barras de uptime diario, tabla por fecha
+- Toggle entre vistas desde el mismo panel
+- Sitios dinámicos (no hardcodeados)
 
-### 💻 Terminal SSH en el browser
-Terminal SSH completamente funcional integrada en el panel, impulsada por **xterm.js** — el mismo motor que usa VS Code. Conecta directamente a tu VPS con autenticación segura:
-- Conexión vía WebSocket con token de sesión firmado (HMAC)
+### 💻 Terminal SSH multi-servidor
+Terminal SSH completamente funcional en el browser, con **xterm.js**:
+- Selector de servidor — conectá a cualquier VPS configurado
+- Conexión vía WebSocket con token firmado (HMAC)
 - Soporte completo de colores ANSI y caracteres especiales
-- Clic derecho para pegar desde el clipboard
-- Resize dinámico al redimensionar la ventana
-- Sesiones protegidas por JWT — solo usuarios autenticados pueden abrir una terminal
+- **Ctrl+Alt+C** para copiar, **Ctrl+Alt+V** para pegar, clic derecho = pegar
+- `copyOnSelect: true` — seleccionar texto lo copia automáticamente
+- Resize dinámico, sesiones protegidas por JWT
+
+### 🖥️ Multi-servidor
+Soporte para múltiples VPS desde un solo panel:
+- Configuración vía variables de entorno (`SERVER_1_*`, `SERVER_2_*`, ...)
+- Métricas SSH (CPU/RAM/disco) de cada servidor remoto
+- PM2 list + restart por servidor
+- Leer/escribir archivos en cualquier servidor vía SSH
+- Selector en terminal, env editor y nginx editor
 
 ### 🚀 Deploys y GitHub integration
-Registro de deploys con ejecución de scripts automáticos directamente desde el panel:
-- Selección de proyecto con scripts preconfigurados en el servidor
-- Output en tiempo real del script de deploy en terminal estilo editor
-- Integración con **GitHub API** — muestra los últimos commits de tus repositorios con el mensaje, SHA y autor
-- Un click en "Usar en deploy" pre-rellena el formulario con la info del commit
-- Registro histórico de los últimos 100 deploys
+- Scripts de deploy dinámicos — detecta automáticamente `/root/deploy_<sitio>.sh`
+- Modal editor para crear/editar scripts directamente desde el panel (guarda en VPS con `chmod +x`)
+- Output en tiempo real del script de deploy
+- Integración con **GitHub API** — últimos commits de todos tus repos
+- Un click en "Usar en deploy" pre-rellena el formulario
+- Historial de los últimos 100 deploys
 
 ### ⚙️ Procesos PM2
-Vista en tiempo real de todos los procesos gestionados por PM2:
-- CPU, memoria RAM, cantidad de reinicios y estado de cada proceso
-- Botón de restart por proceso con confirmación vía toast
-- Alertas visuales cuando CPU > 80% o reinicios > 5
+- CPU, RAM, reinicios y estado de cada proceso
+- Restart con confirmación via toast
+- Alertas cuando CPU > 80% o reinicios > 5
+
+### 📝 Editor de variables de entorno
+- Escanea `/var/www` (o dirs configuradas) vía SSH y lista todos los `.env`
+- Editor inline con backup automático (`.bak`) antes de guardar
+- Selector de servidor — editá `.env` de cualquier VPS
+- Muestra ruta completa y proyecto de cada archivo
+
+### 🌐 Nginx Editor
+- Lista configs de `sites-available` con estado ON/OFF
+- Editor con syntax highlight, botón `nginx -t` y reload
+- Toggle enable/disable de sitios con symlink automático
+- Backup `.bak` antes de cada guardado
+- Funciona en cualquier servidor vía SSH
+
+### 📋 Notas
+- **// 001 Markdown Editor** — editor con preview en vivo lado a lado (split view)
+- **// 002 Notas rápidas** — cards con efecto archivador, modal editor con tabs Editor/Split/Preview
+- Checkboxes funcionales en modo preview (`- [ ]` / `- [x]`)
+- Auto-guardado a los 800ms, múltiples notas independientes
 
 ### 🌐 Visitantes y analytics
-Análisis del tráfico de Nginx en tiempo real:
-- Requests del día, IPs únicas, bots detectados y errores 4xx/5xx
-- Distribución horaria del tráfico con gráfica de barras
+- Requests del día, IPs únicas, bots detectados, errores 4xx/5xx
+- Distribución horaria del tráfico
 - Feed en vivo de las últimas peticiones
-- Países de origen y referrers más frecuentes
+- Países de origen y referrers
 
 ### 🛡️ Seguridad
-Monitor de seguridad basado en análisis de logs de Nginx:
 - IPs bloqueadas con motivo y cantidad de intentos
-- Verificación de headers de seguridad por sitio (HTTPS, HSTS, HTTP/2, X-Powered-By)
+- Verificación de headers de seguridad por sitio (HTTPS, HSTS, HTTP/2)
 - Endpoints con mayor cantidad de errores 401/403
-- Detección de bots por user-agent
 
 ### 📋 Logs en vivo
-Visor de logs con selector de fuente (Nginx access, Nginx error, PM2 por proceso):
-- Selección de cantidad de líneas (50 / 100 / 200)
-- Auto-refresh opcional
-- Visualización en terminal monoespacio
+- Selector de fuente (Nginx access, error, PM2 por proceso)
+- **Búsqueda con highlight** — filtra líneas en tiempo real
+- Auto-refresh cada 5s, selección de cantidad de líneas
 
 ### 🔌 Puertos
-Estado de los puertos configurados del servidor (22, 80, 443, 3000, 3001…), con indicador de abierto/cerrado y latencia de conexión.
-
-### 📝 Notas
-Bloc de notas persistente con auto-guardado a los 800ms. Ideal para comandos frecuentes, IPs y recordatorios del servidor.
+Estado de los puertos del servidor con latencia de conexión.
 
 ### ⚙️ Ajustes
-- **2FA** — Autenticación en dos pasos con Google Authenticator o Authy (TOTP)
-- **Cambio de contraseña** — Desde el panel, sin tocar archivos del servidor
-- **Webhook CI/CD** — URL y ejemplo de GitHub Actions para registrar deploys automáticamente
+- **2FA** — Google Authenticator / Authy (TOTP)
+- **Cambio de contraseña** — desde el panel
+- **Webhook CI/CD** — para GitHub Actions
+- **Push notifications** — configuración de notificaciones al celu
 
 ---
 
@@ -142,11 +177,12 @@ Bloc de notas persistente con auto-guardado a los 800ms. Ideal para comandos fre
 |------------|-----------------|
 | ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white) | Motor del servidor |
 | ![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white) | API REST |
-| ![ws](https://img.shields.io/badge/ws-WebSocket-010101?logoColor=white) | WebSocket real-time (puerto 3003) |
+| ![ws](https://img.shields.io/badge/ws-WebSocket-010101?logoColor=white) | WebSocket estado real-time |
+| ![ssh2](https://img.shields.io/badge/ssh2-SSH-4D4D4D?logoColor=white) | Multi-servidor, env editor, nginx editor |
 | ![JWT](https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white) | Autenticación de sesiones |
 | ![bcrypt](https://img.shields.io/badge/bcrypt-Hash-4A154B?logoColor=white) | Hash de contraseñas |
 | ![speakeasy](https://img.shields.io/badge/Speakeasy-2FA-FF6B35?logoColor=white) | Autenticación en dos pasos |
-| ![Helmet](https://img.shields.io/badge/Helmet.js-Security-333333?logoColor=white) | Headers HTTP de seguridad |
+| ![web-push](https://img.shields.io/badge/web--push-Push-5A0FC8?logoColor=white) | Notificaciones push PWA |
 
 ### 🖥️ Frontend
 
@@ -155,9 +191,9 @@ Bloc de notas persistente con auto-guardado a los 800ms. Ideal para comandos fre
 | ![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white) | Framework React con App Router |
 | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) | Tipado estático |
 | ![xterm.js](https://img.shields.io/badge/xterm.js-Terminal-2B7489?logoColor=white) | Emulador de terminal en el browser |
-| ![ssh2](https://img.shields.io/badge/ssh2-SSH-4D4D4D?logoColor=white) | Conexión SSH desde Node.js |
-| ![Recharts](https://img.shields.io/badge/Recharts-Charts-22b5bf?logoColor=white) | Gráficas de latencia |
-| ![tsx](https://img.shields.io/badge/tsx-TS_Runner-3178C6?logoColor=white) | Custom server con WebSocket |
+| ![Recharts](https://img.shields.io/badge/Recharts-Charts-22b5bf?logoColor=white) | Gráficas de latencia y uptime |
+| ![react-markdown](https://img.shields.io/badge/react--markdown-Markdown-000000?logoColor=white) | Renderizado de notas en markdown |
+| ![tsx](https://img.shields.io/badge/tsx-TS_Runner-3178C6?logoColor=white) | Custom server con WebSocket SSH |
 
 ---
 
@@ -166,27 +202,42 @@ Bloc de notas persistente con auto-guardado a los 800ms. Ideal para comandos fre
 ```
 vps-monitor/
 │
-├── server.js                → API + WebSocket status (puerto 3003)
-├── services/
-│   └── monitor.js           → Monitoreo automático cada 30s
-├── routes/                  → auth, status, alertas, deploys, visitantes,
-│                              seguridad, pm2, logs, ports, sites, notes,
-│                              system, webhook
-├── middleware/auth.js        → Verificación JWT
-├── data/                    → Persistencia JSON (history, alerts, deploys, notes)
+├── backend/
+│   ├── server.js              → API REST + WebSocket estado (puerto 3003)
+│   ├── services/
+│   │   ├── monitor.js         → Monitoreo automático cada 30s + agregación diaria
+│   │   └── servers.js         → SSH multi-servidor (métricas, PM2, archivos)
+│   ├── routes/                → auth, status, alertas, deploys, sites, notes,
+│   │                            logs, pm2, ports, seguridad, visitantes,
+│   │                            system, servers, push, envfiles, nginx, webhook
+│   ├── middleware/auth.js     → Verificación JWT
+│   └── data/                  → Persistencia JSON
 │
-└── frontend/
-    ├── server.ts            → Custom server: Next.js + WebSocket SSH (puerto 3002)
-    ├── app/dashboard/       → 12 páginas del panel
-    ├── components/
-    │   ├── StatusContext.tsx → WebSocket real-time
-    │   ├── Toast.tsx        → Notificaciones
-    │   ├── NavDropdown.tsx  → Menú con badges
-    │   └── SslBanner.tsx    → Banner SSL
-    └── lib/
-        ├── api.ts           → Cliente HTTP completo
-        ├── auth.ts          → JWT localStorage
-        └── terminal-tokens.ts → Tokens HMAC
+├── frontend/
+│   ├── server.ts              → Next.js + WebSocket SSH multi-servidor (puerto 3002)
+│   ├── app/dashboard/         → 14 páginas del panel
+│   │   ├── page.tsx           → Dashboard: sitios, alertas, recursos, PM2
+│   │   ├── historial/         → Gráficas 48h y uptime 30 días
+│   │   ├── deploys/           → GitHub integration + script editor
+│   │   ├── servidores/        → Multi-servidor: métricas + PM2
+│   │   ├── terminal/          → Terminal SSH multi-servidor
+│   │   ├── envfiles/          → Editor de .env por proyecto/servidor
+│   │   ├── nginx/             → Nginx config editor
+│   │   ├── notas/             → Markdown editor + notas rápidas
+│   │   ├── logs/              → Logs con búsqueda y highlight
+│   │   └── ajustes/           → 2FA, password, webhook, push notifications
+│   ├── components/
+│   │   ├── StatusContext.tsx  → WebSocket real-time
+│   │   ├── Select.tsx         → Dropdown custom
+│   │   ├── Toast.tsx          → Notificaciones
+│   │   └── SslBanner.tsx      → Banner SSL
+│   └── lib/
+│       ├── api.ts             → Cliente HTTP completo
+│       ├── auth.ts            → JWT localStorage
+│       └── terminal-tokens.ts → Tokens HMAC
+│
+├── .env                       → Único archivo de configuración
+└── package.json
 ```
 
 ---
@@ -197,27 +248,33 @@ vps-monitor/
 - [x] Monitoreo automático de sitios (HTTP, SSL, DNS, latencia)
 - [x] Dashboard en tiempo real vía WebSocket
 - [x] Sistema de alertas con auto-resolución
-- [x] Historial y gráficas de latencia / uptime
-- [x] Terminal SSH en el browser (xterm.js + WebSocket + ssh2)
-- [x] Deploys con scripts y output en streaming
+- [x] Historial 48h + uptime 30 días con gráficas
+- [x] Terminal SSH multi-servidor en el browser (xterm.js)
+- [x] Deploys con scripts automáticos y output en streaming
 - [x] Integración GitHub API — commits recientes
 - [x] PM2 management con restart
 - [x] Analytics de visitantes (Nginx logs)
 - [x] Monitor de seguridad
-- [x] Logs en tiempo real
-- [x] Puertos y notas
+- [x] Logs en tiempo real con búsqueda y highlight
+- [x] Puertos, notas markdown, ajustes
 - [x] 2FA, cambio de contraseña, webhook CI/CD
 - [x] PWA instalable (Android e iOS)
 - [x] Dark mode / Light mode
 - [x] Responsive completo (móvil, tablet, desktop)
-- [x] Toast notifications y session timeout
-- [x] apt upgrade desde el panel con streaming
+- [x] Push notifications al celu cuando un sitio cae
+- [x] Favicon badge con contador de alertas
+- [x] CPU / RAM / Disco en dashboard
+- [x] Multi-servidor vía SSH (métricas, PM2, deploy)
+- [x] Editor de variables de entorno por proyecto/servidor
+- [x] Nginx config editor con nginx -t y reload
+- [x] Deploy scripts dinámicos — modal editor, guarda en VPS
+- [x] Notas con markdown split view + notas rápidas con efecto archivador
 
 ### 🔜 Próximamente
-- [ ] Deploy con Nginx + dominio propio + HTTPS
-- [ ] Notificaciones push (PWA)
-- [ ] Métricas de CPU/RAM del servidor en tiempo real
-- [ ] Múltiples usuarios con roles
+- [ ] Despliegue con Nginx + dominio + HTTPS
+- [ ] Cron jobs manager desde el panel
+- [ ] Incidentes — historial de caídas con duración
+- [ ] Alertas configurables desde la UI (umbrales personalizados)
 
 ---
 

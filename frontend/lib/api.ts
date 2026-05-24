@@ -13,6 +13,8 @@ async function req<T>(path: string, opts: RequestInit = {}): Promise<T> {
     },
   });
   if (res.status === 401) {
+    const body = await res.json().catch(() => ({})) as { error?: string; requires2fa?: boolean };
+    if (body.requires2fa) throw new Error(body.error || 'Código 2FA requerido');
     clearToken();
     window.location.href = '/login';
     throw new Error('Unauthorized');
@@ -60,6 +62,15 @@ export type Alert = {
 
 export type HistoryEntry = SiteStatus;
 
+export type DailyEntry = {
+  date: string;
+  uptime: number;
+  checks: number;
+  latAvg: number;
+  latMin: number;
+  latMax: number;
+};
+
 export const api = {
   login: (usuario: string, password: string, token?: string) =>
     req<{ token: string; usuario: string; twoFaEnabled: boolean }>('/auth/login', {
@@ -72,8 +83,9 @@ export const api = {
   status: () => req<SiteStatus[]>('/status'),
 
   history: () => req<Record<string, HistoryEntry[]>>('/history'),
-
   historySite: (id: string) => req<HistoryEntry[]>(`/history/${id}`),
+  daily: () => req<Record<string, DailyEntry[]>>('/daily'),
+  dailySite: (id: string) => req<DailyEntry[]>(`/daily/${id}`),
 
   alertas: () => req<Alert[]>('/alertas'),
 
@@ -106,12 +118,19 @@ export const api = {
   pm2: () => req<Pm2Process[]>('/pm2'),
   pm2Restart: (name: string) => req<{ ok: boolean; output: string }>(`/pm2/${name}/restart`, { method: 'POST' }),
 
+  deployScriptRead: (sitio: string) => req<{ content: string }>(`/deploys/scripts/${sitio}`),
+  deployScriptSave: (sitio: string, content: string, customPath?: string) => req<{ ok: boolean; path: string }>(`/deploys/scripts/${sitio}`, { method: 'PUT', body: JSON.stringify({ content, customPath }) }),
+
   sites: () => req<Site[]>('/sites'),
   addSite: (url: string, nombre: string) => req<Site>('/sites', { method: 'POST', body: JSON.stringify({ url, nombre }) }),
   deleteSite: (id: string) => req<{ ok: boolean }>(`/sites/${id}`, { method: 'DELETE' }),
 
-  notes: () => req<{ content: string; updatedAt?: string }>('/notes'),
-  saveNotes: (content: string) => req<{ content: string }>('/notes', { method: 'PUT', body: JSON.stringify({ content }) }),
+  notes: () => req<Note[]>('/notes'),
+  noteGet: (id: string) => req<Note>(`/notes/${id}`),
+  noteCreate: (title: string) => req<Note>('/notes', { method: 'POST', body: JSON.stringify({ title }) }),
+  noteSave: (id: string, content: string) => req<Note>(`/notes/${id}`, { method: 'PUT', body: JSON.stringify({ content }) }),
+  noteRename: (id: string, title: string) => req<Note>(`/notes/${id}`, { method: 'PATCH', body: JSON.stringify({ title }) }),
+  noteDelete: (id: string) => req<{ ok: boolean }>(`/notes/${id}`, { method: 'DELETE' }),
 
   logs: (source: string, name?: string, lines?: number) =>
     req<{ source: string; lines: string[] }>(`/logs?source=${source}${name ? `&name=${name}` : ''}&lines=${lines ?? 80}`),
@@ -126,11 +145,44 @@ export const api = {
     disable: (token: string) => req<{ ok: boolean }>('/auth/2fa/disable', { method: 'POST', body: JSON.stringify({ token }) }),
   },
 
+  systemMetrics: () => req<SystemMetrics>('/system/metrics'),
+  systemMetricsHistory: () => req<MetricsPoint[]>('/system/metrics/history'),
+
   changePassword: (currentPassword: string, newPassword: string) =>
     req<{ ok: boolean }>('/system/change-password', {
       method: 'POST',
       body: JSON.stringify({ currentPassword, newPassword }),
     }),
+
+  snippets: () => req<Snippet[]>('/snippets'),
+  snippetCreate: (name: string, command: string, serverId: string) => req<Snippet>('/snippets', { method: 'POST', body: JSON.stringify({ name, command, serverId }) }),
+  snippetUpdate: (id: string, data: Partial<Snippet>) => req<Snippet>(`/snippets/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  snippetDelete: (id: string) => req<{ ok: boolean }>(`/snippets/${id}`, { method: 'DELETE' }),
+  snippetRun: (id: string) => req<{ ok: boolean; output: string; duration: number }>(`/snippets/${id}/run`, { method: 'POST' }),
+
+  envFiles: (server?: string) => req<EnvFile[]>(`/envfiles${server ? `?server=${server}` : ''}`),
+  envFileRead: (id: string, server?: string) => req<{ content: string; path: string }>(`/envfiles/content?id=${id}${server ? `&server=${server}` : ''}`),
+  envFileSave: (id: string, content: string, server?: string) => req<{ ok: boolean; backup: string }>('/envfiles/content', { method: 'PUT', body: JSON.stringify({ id, content, server }) }),
+
+  nginxConfigs: (server?: string) => req<NginxConfig[]>(`/nginx${server ? `?server=${server}` : ''}`),
+  nginxRead: (path: string, server?: string) => req<{ content: string; path: string }>(`/nginx/content?path=${encodeURIComponent(path)}${server ? `&server=${server}` : ''}`),
+  nginxSave: (path: string, content: string, server?: string) => req<{ ok: boolean; backup: string }>('/nginx/content', { method: 'PUT', body: JSON.stringify({ path, content, server }) }),
+  nginxTest: (server?: string) => req<{ ok: boolean; output: string }>('/nginx/test', { method: 'POST', body: JSON.stringify({ server }) }),
+  nginxReload: (server?: string) => req<{ ok: boolean; output: string }>('/nginx/reload', { method: 'POST', body: JSON.stringify({ server }) }),
+  nginxToggle: (name: string, enable: boolean, server?: string) => req<{ ok: boolean }>('/nginx/toggle', { method: 'POST', body: JSON.stringify({ name, enable, server }) }),
+
+  pushVapidKey: () => req<{ publicKey: string }>('/push/vapid-key'),
+  pushSubscribe: (sub: PushSubscriptionJSON) => req<{ ok: boolean }>('/push/subscribe', { method: 'POST', body: JSON.stringify(sub) }),
+  pushTest: () => req<{ ok: boolean }>('/push/test', { method: 'POST' }),
+  pushUnsubscribe: (endpoint: string) => req<{ ok: boolean }>('/push/unsubscribe', { method: 'POST', body: JSON.stringify({ endpoint }) }),
+
+  servers: () => req<RemoteServer[]>('/servers'),
+  serverMetrics: (id: string) => req<SystemMetrics>(`/servers/${id}/metrics`),
+  serverPm2: (id: string) => req<Pm2Process[]>(`/servers/${id}/pm2`),
+  serverPm2Restart: (id: string, name: string) => req<{ ok: boolean; output: string }>(`/servers/${id}/pm2/${name}/restart`, { method: 'POST' }),
+  serverScriptRead: (id: string, sitio: string) => req<{ content: string }>(`/servers/${id}/scripts/${sitio}`),
+  serverScriptSave: (id: string, sitio: string, content: string) => req<{ ok: boolean; path: string }>(`/servers/${id}/scripts/${sitio}`, { method: 'PUT', body: JSON.stringify({ content }) }),
+  serverDeploy: (id: string, sitio: string) => req<{ ok: boolean; output: string }>(`/servers/${id}/deploy/${sitio}`, { method: 'POST' }),
 
   systemUpdate: () => {
     const { getToken } = require('@/lib/auth');
@@ -203,6 +255,62 @@ export type Seguridad = {
     http2: boolean;
     xPoweredBy: boolean;
   }[];
+};
+
+export type Snippet = {
+  id: string;
+  name: string;
+  command: string;
+  serverId: string;
+  createdAt: string;
+};
+
+export type EnvFile = {
+  id: string;
+  project: string;
+  file: string;
+  path: string;
+  size: number;
+  mtime: string;
+};
+
+export type NginxConfig = {
+  name: string;
+  path: string;
+  enabled: boolean;
+  size: number;
+  mtime: string;
+};
+
+export type RemoteServer = {
+  id: string;
+  name: string;
+  host: string;
+  user: string;
+  port: number;
+};
+
+export type SystemMetrics = {
+  cpu: { pct: number; load: [number, number, number]; cores: number };
+  ram: { total: number; used: number; free: number; pct: number };
+  disk: { total: number; used: number; free: number; pct: number } | null;
+  uptime: number;
+  hostname: string;
+  platform: string;
+};
+
+export type MetricsPoint = {
+  timestamp: string;
+  cpu: number;
+  ram: number;
+  disk: number | null;
+};
+
+export type Note = {
+  id: string;
+  title: string;
+  content: string;
+  updatedAt: string;
 };
 
 export type Deploy = {

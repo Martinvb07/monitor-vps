@@ -6,11 +6,19 @@ const router = express.Router();
 
 const FILE = path.join(__dirname, '../data/deploys.json');
 
-const SCRIPTS = {
-  mesoft: process.env.DEPLOY_SCRIPT_MESOFT || null,
-  agro:   process.env.DEPLOY_SCRIPT_AGRO   || null,
-  cancha: process.env.DEPLOY_SCRIPT_CANCHA  || null,
-};
+const SCRIPTS_DIR = process.env.DEPLOY_SCRIPTS_DIR || (process.platform === 'win32' ? null : '/root');
+
+function getScript(sitioId) {
+  // 1. Variable de entorno específica (legacy)
+  const envKey = `DEPLOY_SCRIPT_${sitioId.toUpperCase().replace(/-/g, '_')}`;
+  if (process.env[envKey]) return process.env[envKey];
+  // 2. Archivo en DEPLOY_SCRIPTS_DIR con convención deploy_<id>.sh
+  if (SCRIPTS_DIR) {
+    const p = require('path').join(SCRIPTS_DIR, `deploy_${sitioId}.sh`);
+    if (require('fs').existsSync(p)) return `bash ${p}`;
+  }
+  return null;
+}
 
 function load() {
   try { return JSON.parse(fs.readFileSync(FILE, 'utf8')); } catch { return []; }
@@ -21,13 +29,41 @@ router.get('/', (req, res) => {
   res.json(load());
 });
 
-// Scripts disponibles (sin exponer los comandos)
+// Scripts disponibles por sitio (sin exponer los comandos)
 router.get('/scripts', (req, res) => {
-  res.json({
-    mesoft: !!SCRIPTS.mesoft,
-    agro:   !!SCRIPTS.agro,
-    cancha: !!SCRIPTS.cancha,
-  });
+  let sites = [];
+  try { sites = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/sites.json'), 'utf8')); } catch {}
+  const result = {};
+  sites.forEach((s) => { result[s.id] = !!getScript(s.id); });
+  res.json(result);
+});
+
+// Leer script de un sitio
+router.get('/scripts/:sitio', (req, res) => {
+  if (!SCRIPTS_DIR) return res.json({ content: '' });
+  const p = require('path').join(SCRIPTS_DIR, `deploy_${req.params.sitio}.sh`);
+  try { res.json({ content: require('fs').readFileSync(p, 'utf8') }); }
+  catch { res.json({ content: '' }); }
+});
+
+// Guardar/crear script de un sitio localmente
+router.put('/scripts/:sitio', (req, res) => {
+  if (!SCRIPTS_DIR) return res.status(400).json({ error: 'DEPLOY_SCRIPTS_DIR no configurado' });
+  const { content, customPath } = req.body;
+  if (!content) return res.status(400).json({ error: 'content requerido' });
+  // customPath debe ser ruta absoluta y no contener ..
+  let p;
+  if (customPath && path.isAbsolute(customPath) && !customPath.includes('..')) {
+    p = customPath;
+  } else {
+    p = path.join(SCRIPTS_DIR, `deploy_${req.params.sitio}.sh`);
+  }
+  try {
+    fs.writeFileSync(p, content, { mode: 0o755 });
+    res.json({ ok: true, path: p });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Registrar deploy manual (solo log)
@@ -52,7 +88,7 @@ router.post('/', (req, res) => {
 // Ejecutar deploy real
 router.post('/:sitio/run', (req, res) => {
   const { sitio } = req.params;
-  const script = SCRIPTS[sitio];
+  const script = getScript(sitio);
 
   if (!script) {
     return res.status(400).json({ error: `No hay script configurado para "${sitio}"` });

@@ -1,5 +1,5 @@
 import { config as loadEnv } from 'dotenv';
-loadEnv({ path: '.env.local' });
+loadEnv({ path: '../.env' }); // Un solo .env para todo
 
 import { createServer } from 'http';
 import { parse } from 'url';
@@ -9,8 +9,8 @@ import { Client } from 'ssh2';
 import { consumeToken } from './lib/terminal-tokens';
 
 const dev = process.env.NODE_ENV !== 'production';
-const port = parseInt(process.env.PORT || '3001', 10);
-const wsPort = parseInt(process.env.WS_PORT || '3002', 10);
+const port   = parseInt(process.env.FRONTEND_PORT   || '3001', 10); // Next.js
+const wsPort = parseInt(process.env.TERMINAL_WS_PORT || '3002', 10); // Terminal SSH WS
 const app = next({ dev, port });
 const handle = app.getRequestHandler();
 
@@ -24,34 +24,56 @@ app.prepare().then(() => {
   const wsHttpServer = createServer();
   const wss = new WebSocketServer({ server: wsHttpServer });
 
-  wss.on('connection', (ws, req) => {
-    const { query } = parse(req.url!, true);
-    const token = Array.isArray(query.token) ? query.token[0] : query.token;
-
-    if (!token || !consumeToken(token)) {
-      ws.close(1008, 'Unauthorized');
-      return;
+  // Carga configs de servidores desde el .env (mismo formato que services/servers.js)
+  function loadServerConfig(id?: string | null): Parameters<Client['connect']>[0] {
+    // Si piden un servidor remoto configurado (SERVER_1_*, SERVER_2_*, ...)
+    if (id && /^\d+$/.test(id)) {
+      const host     = process.env[`SERVER_${id}_HOST`];
+      const user     = process.env[`SERVER_${id}_USER`]     || 'root';
+      const password = process.env[`SERVER_${id}_PASSWORD`] || undefined;
+      const keyPath  = process.env[`SERVER_${id}_KEY_PATH`] || undefined;
+      const port     = parseInt(process.env[`SERVER_${id}_PORT`] || '22', 10);
+      if (host) {
+        return {
+          host, port, username: user, readyTimeout: 10000,
+          ...(keyPath
+            ? { privateKey: require('fs').readFileSync(keyPath) }
+            : { password: password || '' }),
+        };
+      }
     }
-
-    handleTerminal(ws);
-  });
-
-  wsHttpServer.listen(wsPort, () => {
-    console.log(`> WebSocket terminal en ws://localhost:${wsPort}`);
-  });
-
-  function handleTerminal(ws: WebSocket) {
-    const ssh = new Client();
-
-    const sshConfig: Parameters<Client['connect']>[0] = {
-      host: process.env.SSH_HOST || '127.0.0.1',
-      port: parseInt(process.env.SSH_PORT || '22', 10),
+    // Servidor principal (SSH_HOST del .env)
+    return {
+      host:     process.env.SSH_HOST || '127.0.0.1',
+      port:     parseInt(process.env.SSH_PORT || '22', 10),
       username: process.env.SSH_USER || 'root',
       readyTimeout: 10000,
       ...(process.env.SSH_PRIVATE_KEY
         ? { privateKey: process.env.SSH_PRIVATE_KEY.replace(/\\n/g, '\n') }
         : { password: process.env.SSH_PASSWORD || '' }),
     };
+  }
+
+  wss.on('connection', (ws, req) => {
+    const { query } = parse(req.url!, true);
+    const token    = Array.isArray(query.token)  ? query.token[0]  : query.token;
+    const serverId = Array.isArray(query.server) ? query.server[0] : query.server;
+
+    if (!token || !consumeToken(token)) {
+      ws.close(1008, 'Unauthorized');
+      return;
+    }
+
+    handleTerminal(ws, serverId);
+  });
+
+  wsHttpServer.listen(wsPort, () => {
+    console.log(`> WebSocket terminal en ws://localhost:${wsPort}`);
+  });
+
+  function handleTerminal(ws: WebSocket, serverId?: string | null) {
+    const ssh = new Client();
+    const sshConfig = loadServerConfig(serverId);
 
     const send = (type: string, data?: string) => {
       if (ws.readyState === WebSocket.OPEN) {

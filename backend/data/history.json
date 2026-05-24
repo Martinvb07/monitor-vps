@@ -1,0 +1,4114 @@
+{
+  "mesoft": [
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:46:28.134Z",
+      "online": true,
+      "status": 200,
+      "latencia": 637,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:46:57.924Z",
+      "online": true,
+      "status": 200,
+      "latencia": 352,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:47:28.186Z",
+      "online": true,
+      "status": 200,
+      "latencia": 600,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:47:57.917Z",
+      "online": true,
+      "status": 200,
+      "latencia": 322,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:48:28.402Z",
+      "online": true,
+      "status": 200,
+      "latencia": 808,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:48:57.913Z",
+      "online": true,
+      "status": 200,
+      "latencia": 314,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:49:27.910Z",
+      "online": true,
+      "status": 200,
+      "latencia": 303,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:49:58.189Z",
+      "online": true,
+      "status": 200,
+      "latencia": 568,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:50:28.068Z",
+      "online": true,
+      "status": 200,
+      "latencia": 439,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:50:58.411Z",
+      "online": true,
+      "status": 200,
+      "latencia": 769,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:51:28.154Z",
+      "online": true,
+      "status": 200,
+      "latencia": 497,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:51:58.070Z",
+      "online": true,
+      "status": 200,
+      "latencia": 401,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:52:28.018Z",
+      "online": true,
+      "status": 200,
+      "latencia": 334,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:52:58.019Z",
+      "online": true,
+      "status": 200,
+      "latencia": 326,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:53:28.049Z",
+      "online": true,
+      "status": 200,
+      "latencia": 352,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:53:58.009Z",
+      "online": true,
+      "status": 200,
+      "latencia": 313,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:54:28.032Z",
+      "online": true,
+      "status": 200,
+      "latencia": 320,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:54:58.069Z",
+      "online": true,
+      "status": 200,
+      "latencia": 343,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:55:28.385Z",
+      "online": true,
+      "status": 200,
+      "latencia": 643,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:55:58.056Z",
+      "online": true,
+      "status": 200,
+      "latencia": 312,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:56:28.100Z",
+      "online": true,
+      "status": 200,
+      "latencia": 344,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:56:58.149Z",
+      "online": true,
+      "status": 200,
+      "latencia": 381,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:57:28.128Z",
+      "online": true,
+      "status": 200,
+      "latencia": 353,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:57:58.081Z",
+      "online": true,
+      "status": 200,
+      "latencia": 301,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:58:28.092Z",
+      "online": true,
+      "status": 200,
+      "latencia": 301,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:58:58.205Z",
+      "online": true,
+      "status": 200,
+      "latencia": 412,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:59:28.149Z",
+      "online": true,
+      "status": 200,
+      "latencia": 351,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-22T23:59:58.133Z",
+      "online": true,
+      "status": 200,
+      "latencia": 333,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:00:28.214Z",
+      "online": true,
+      "status": 200,
+      "latencia": 404,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:00:58.496Z",
+      "online": true,
+      "status": 200,
+      "latencia": 680,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:01:28.129Z",
+      "online": true,
+      "status": 200,
+      "latencia": 306,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:01:58.233Z",
+      "online": true,
+      "status": 200,
+      "latencia": 408,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:35:49.950Z",
+      "online": false,
+      "status": 0,
+      "latencia": 10,
+      "headers": {},
+      "ssl": null,
+      "ip": null
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:36:20.409Z",
+      "online": true,
+      "status": 200,
+      "latencia": 466,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:36:50.215Z",
+      "online": true,
+      "status": 200,
+      "latencia": 260,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:37:20.268Z",
+      "online": true,
+      "status": 200,
+      "latencia": 298,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:37:51.342Z",
+      "online": true,
+      "status": 200,
+      "latencia": 1355,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:38:20.340Z",
+      "online": true,
+      "status": 200,
+      "latencia": 354,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:38:50.317Z",
+      "online": true,
+      "status": 200,
+      "latencia": 324,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:39:20.343Z",
+      "online": true,
+      "status": 200,
+      "latencia": 341,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:39:50.312Z",
+      "online": true,
+      "status": 200,
+      "latencia": 303,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:40:20.022Z",
+      "online": false,
+      "status": 0,
+      "latencia": 12,
+      "headers": {},
+      "ssl": null,
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:55:18.059Z",
+      "online": false,
+      "status": 0,
+      "latencia": 95,
+      "headers": {},
+      "ssl": null,
+      "ip": null
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:55:48.417Z",
+      "online": true,
+      "status": 200,
+      "latencia": 449,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:56:18.245Z",
+      "online": true,
+      "status": 200,
+      "latencia": 273,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:56:48.579Z",
+      "online": true,
+      "status": 200,
+      "latencia": 599,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:57:18.321Z",
+      "online": true,
+      "status": 200,
+      "latencia": 340,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "mesoft",
+      "nombre": "MeSoft",
+      "url": "https://mesoft.store",
+      "timestamp": "2026-05-23T00:57:48.346Z",
+      "online": true,
+      "status": 200,
+      "latencia": 360,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:43:00.000Z",
+        "diasRestantes": 62,
+        "subject": "mesoft.store"
+      },
+      "ip": "72.60.167.35"
+    }
+  ],
+  "agro": [
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:46:28.144Z",
+      "online": true,
+      "status": 200,
+      "latencia": 589,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:46:57.875Z",
+      "online": true,
+      "status": 200,
+      "latencia": 294,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:47:28.183Z",
+      "online": true,
+      "status": 200,
+      "latencia": 570,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:47:57.930Z",
+      "online": true,
+      "status": 200,
+      "latencia": 328,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:48:28.604Z",
+      "online": true,
+      "status": 200,
+      "latencia": 1005,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:48:57.912Z",
+      "online": true,
+      "status": 200,
+      "latencia": 308,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:49:27.910Z",
+      "online": true,
+      "status": 200,
+      "latencia": 299,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:49:58.245Z",
+      "online": true,
+      "status": 200,
+      "latencia": 619,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:50:28.064Z",
+      "online": true,
+      "status": 200,
+      "latencia": 421,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:50:58.350Z",
+      "online": true,
+      "status": 200,
+      "latencia": 705,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:51:28.131Z",
+      "online": true,
+      "status": 200,
+      "latencia": 470,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:51:58.042Z",
+      "online": true,
+      "status": 200,
+      "latencia": 368,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:52:28.018Z",
+      "online": true,
+      "status": 200,
+      "latencia": 331,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:52:58.019Z",
+      "online": true,
+      "status": 200,
+      "latencia": 322,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:53:27.998Z",
+      "online": true,
+      "status": 200,
+      "latencia": 297,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:53:58.046Z",
+      "online": true,
+      "status": 200,
+      "latencia": 340,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:54:28.038Z",
+      "online": true,
+      "status": 200,
+      "latencia": 323,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:54:58.094Z",
+      "online": true,
+      "status": 200,
+      "latencia": 365,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:55:28.339Z",
+      "online": true,
+      "status": 200,
+      "latencia": 593,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:55:58.084Z",
+      "online": true,
+      "status": 200,
+      "latencia": 336,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:56:28.100Z",
+      "online": true,
+      "status": 200,
+      "latencia": 342,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:56:58.150Z",
+      "online": true,
+      "status": 200,
+      "latencia": 371,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:57:28.097Z",
+      "online": true,
+      "status": 200,
+      "latencia": 317,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:57:58.094Z",
+      "online": true,
+      "status": 200,
+      "latencia": 310,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:58:28.134Z",
+      "online": true,
+      "status": 200,
+      "latencia": 341,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:58:58.187Z",
+      "online": true,
+      "status": 200,
+      "latencia": 390,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:59:28.116Z",
+      "online": true,
+      "status": 200,
+      "latencia": 313,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-22T23:59:58.129Z",
+      "online": true,
+      "status": 200,
+      "latencia": 318,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:00:28.241Z",
+      "online": true,
+      "status": 200,
+      "latencia": 425,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:00:58.613Z",
+      "online": true,
+      "status": 200,
+      "latencia": 793,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:01:28.167Z",
+      "online": true,
+      "status": 200,
+      "latencia": 342,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:01:58.223Z",
+      "online": true,
+      "status": 200,
+      "latencia": 394,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:35:49.950Z",
+      "online": false,
+      "status": 0,
+      "latencia": 7,
+      "headers": {},
+      "ssl": null,
+      "ip": null
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:36:20.390Z",
+      "online": true,
+      "status": 200,
+      "latencia": 445,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:36:50.256Z",
+      "online": true,
+      "status": 200,
+      "latencia": 300,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:37:20.288Z",
+      "online": true,
+      "status": 200,
+      "latencia": 316,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:37:50.298Z",
+      "online": true,
+      "status": 200,
+      "latencia": 308,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:38:20.261Z",
+      "online": true,
+      "status": 200,
+      "latencia": 270,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:38:50.335Z",
+      "online": true,
+      "status": 200,
+      "latencia": 337,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:39:20.375Z",
+      "online": true,
+      "status": 200,
+      "latencia": 367,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:39:50.373Z",
+      "online": true,
+      "status": 200,
+      "latencia": 359,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:40:20.022Z",
+      "online": false,
+      "status": 0,
+      "latencia": 10,
+      "headers": {},
+      "ssl": null,
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:55:18.059Z",
+      "online": false,
+      "status": 0,
+      "latencia": 73,
+      "headers": {},
+      "ssl": null,
+      "ip": null
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:55:48.369Z",
+      "online": true,
+      "status": 200,
+      "latencia": 399,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:56:18.305Z",
+      "online": true,
+      "status": 200,
+      "latencia": 331,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:56:48.578Z",
+      "online": true,
+      "status": 200,
+      "latencia": 597,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:57:18.352Z",
+      "online": true,
+      "status": 200,
+      "latencia": 362,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "agro",
+      "nombre": "AgroManager",
+      "url": "https://agromanager.pro",
+      "timestamp": "2026-05-23T00:57:48.336Z",
+      "online": true,
+      "status": 200,
+      "latencia": 343,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": null,
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-07-24T21:42:48.000Z",
+        "diasRestantes": 62,
+        "subject": "agromanager.pro"
+      },
+      "ip": "72.60.167.35"
+    }
+  ],
+  "cancha": [
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:46:28.135Z",
+      "online": true,
+      "status": 200,
+      "latencia": 578,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:46:57.935Z",
+      "online": true,
+      "status": 200,
+      "latencia": 348,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:47:28.187Z",
+      "online": true,
+      "status": 200,
+      "latencia": 559,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:47:57.963Z",
+      "online": true,
+      "status": 200,
+      "latencia": 353,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:48:28.402Z",
+      "online": true,
+      "status": 200,
+      "latencia": 797,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:48:57.965Z",
+      "online": true,
+      "status": 200,
+      "latencia": 358,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:49:27.932Z",
+      "online": true,
+      "status": 200,
+      "latencia": 317,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:49:58.249Z",
+      "online": true,
+      "status": 200,
+      "latencia": 620,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:50:28.067Z",
+      "online": true,
+      "status": 200,
+      "latencia": 418,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:50:58.418Z",
+      "online": true,
+      "status": 200,
+      "latencia": 770,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:51:28.166Z",
+      "online": true,
+      "status": 200,
+      "latencia": 501,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:51:58.058Z",
+      "online": true,
+      "status": 200,
+      "latencia": 379,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:52:28.015Z",
+      "online": true,
+      "status": 200,
+      "latencia": 325,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:52:57.990Z",
+      "online": true,
+      "status": 200,
+      "latencia": 289,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:53:27.986Z",
+      "online": true,
+      "status": 200,
+      "latencia": 282,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:53:58.060Z",
+      "online": true,
+      "status": 200,
+      "latencia": 346,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:54:28.072Z",
+      "online": true,
+      "status": 200,
+      "latencia": 354,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:54:58.598Z",
+      "online": true,
+      "status": 200,
+      "latencia": 865,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:55:28.385Z",
+      "online": true,
+      "status": 200,
+      "latencia": 635,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:55:58.079Z",
+      "online": true,
+      "status": 200,
+      "latencia": 327,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:56:28.084Z",
+      "online": true,
+      "status": 200,
+      "latencia": 324,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:56:58.179Z",
+      "online": true,
+      "status": 200,
+      "latencia": 391,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:57:28.103Z",
+      "online": true,
+      "status": 200,
+      "latencia": 318,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:57:58.128Z",
+      "online": true,
+      "status": 200,
+      "latencia": 341,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:58:28.104Z",
+      "online": true,
+      "status": 200,
+      "latencia": 308,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:58:58.186Z",
+      "online": true,
+      "status": 200,
+      "latencia": 387,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:59:28.143Z",
+      "online": true,
+      "status": 200,
+      "latencia": 334,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-22T23:59:58.173Z",
+      "online": true,
+      "status": 200,
+      "latencia": 354,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:00:28.402Z",
+      "online": true,
+      "status": 200,
+      "latencia": 584,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:00:58.522Z",
+      "online": true,
+      "status": 200,
+      "latencia": 699,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:01:28.165Z",
+      "online": true,
+      "status": 200,
+      "latencia": 338,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:01:58.239Z",
+      "online": true,
+      "status": 200,
+      "latencia": 407,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:35:49.950Z",
+      "online": false,
+      "status": 0,
+      "latencia": 5,
+      "headers": {},
+      "ssl": null,
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:36:20.450Z",
+      "online": true,
+      "status": 200,
+      "latencia": 504,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:36:50.261Z",
+      "online": true,
+      "status": 200,
+      "latencia": 304,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:37:20.288Z",
+      "online": true,
+      "status": 200,
+      "latencia": 314,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:37:51.323Z",
+      "online": true,
+      "status": 200,
+      "latencia": 1328,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:38:20.296Z",
+      "online": true,
+      "status": 200,
+      "latencia": 302,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:38:50.316Z",
+      "online": true,
+      "status": 200,
+      "latencia": 315,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:39:20.322Z",
+      "online": true,
+      "status": 200,
+      "latencia": 310,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:39:50.347Z",
+      "online": true,
+      "status": 200,
+      "latencia": 331,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:40:20.022Z",
+      "online": false,
+      "status": 0,
+      "latencia": 7,
+      "headers": {},
+      "ssl": null,
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:55:18.059Z",
+      "online": false,
+      "status": 0,
+      "latencia": 31,
+      "headers": {},
+      "ssl": null,
+      "ip": null
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:55:48.419Z",
+      "online": true,
+      "status": 200,
+      "latencia": 449,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:56:18.283Z",
+      "online": true,
+      "status": 200,
+      "latencia": 308,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:56:48.579Z",
+      "online": true,
+      "status": 200,
+      "latencia": 597,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:57:18.344Z",
+      "online": true,
+      "status": 200,
+      "latencia": 345,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    },
+    {
+      "id": "cancha",
+      "nombre": "ReservaTuCancha",
+      "url": "https://reservatucancha.site",
+      "timestamp": "2026-05-23T00:57:48.355Z",
+      "online": true,
+      "status": 200,
+      "latencia": 357,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-06-26T19:30:19.000Z",
+        "diasRestantes": 34,
+        "subject": "reservatucancha.site"
+      },
+      "ip": "72.60.167.35"
+    }
+  ],
+  "cuscus-hats": [
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:46:28.183Z",
+      "online": true,
+      "status": 200,
+      "latencia": 623,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:46:57.977Z",
+      "online": true,
+      "status": 200,
+      "latencia": 385,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:47:28.187Z",
+      "online": true,
+      "status": 200,
+      "latencia": 545,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:47:57.959Z",
+      "online": true,
+      "status": 200,
+      "latencia": 338,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:48:28.605Z",
+      "online": true,
+      "status": 200,
+      "latencia": 994,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:48:57.966Z",
+      "online": true,
+      "status": 200,
+      "latencia": 356,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:49:27.975Z",
+      "online": true,
+      "status": 200,
+      "latencia": 357,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:49:58.292Z",
+      "online": true,
+      "status": 200,
+      "latencia": 661,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:50:28.073Z",
+      "online": true,
+      "status": 200,
+      "latencia": 417,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:50:58.405Z",
+      "online": true,
+      "status": 200,
+      "latencia": 754,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:51:28.196Z",
+      "online": true,
+      "status": 200,
+      "latencia": 527,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:51:58.040Z",
+      "online": true,
+      "status": 200,
+      "latencia": 357,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:52:28.055Z",
+      "online": true,
+      "status": 200,
+      "latencia": 363,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:52:58.072Z",
+      "online": true,
+      "status": 200,
+      "latencia": 369,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:53:28.077Z",
+      "online": true,
+      "status": 200,
+      "latencia": 370,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:53:58.084Z",
+      "online": true,
+      "status": 200,
+      "latencia": 366,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:54:28.082Z",
+      "online": true,
+      "status": 200,
+      "latencia": 360,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:54:58.598Z",
+      "online": true,
+      "status": 200,
+      "latencia": 862,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:55:28.384Z",
+      "online": true,
+      "status": 200,
+      "latencia": 631,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:55:58.135Z",
+      "online": true,
+      "status": 200,
+      "latencia": 380,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:56:28.137Z",
+      "online": true,
+      "status": 200,
+      "latencia": 376,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:56:58.195Z",
+      "online": true,
+      "status": 200,
+      "latencia": 399,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:57:28.167Z",
+      "online": true,
+      "status": 200,
+      "latencia": 376,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:57:58.125Z",
+      "online": true,
+      "status": 200,
+      "latencia": 336,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:58:28.153Z",
+      "online": true,
+      "status": 200,
+      "latencia": 355,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:58:58.231Z",
+      "online": true,
+      "status": 200,
+      "latencia": 430,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:59:28.182Z",
+      "online": true,
+      "status": 200,
+      "latencia": 367,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-22T23:59:58.220Z",
+      "online": true,
+      "status": 200,
+      "latencia": 391,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:00:28.292Z",
+      "online": true,
+      "status": 200,
+      "latencia": 472,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:00:58.553Z",
+      "online": true,
+      "status": 200,
+      "latencia": 726,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:01:28.167Z",
+      "online": true,
+      "status": 200,
+      "latencia": 338,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:01:58.223Z",
+      "online": true,
+      "status": 200,
+      "latencia": 388,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:35:49.955Z",
+      "online": false,
+      "status": 0,
+      "latencia": 3,
+      "headers": {},
+      "ssl": null,
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:36:20.450Z",
+      "online": true,
+      "status": 200,
+      "latencia": 503,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:36:50.246Z",
+      "online": true,
+      "status": 200,
+      "latencia": 288,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:37:20.307Z",
+      "online": true,
+      "status": 200,
+      "latencia": 332,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:37:51.265Z",
+      "online": true,
+      "status": 200,
+      "latencia": 370,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:38:20.361Z",
+      "online": true,
+      "status": 200,
+      "latencia": 362,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:38:50.340Z",
+      "online": true,
+      "status": 200,
+      "latencia": 335,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:39:20.384Z",
+      "online": true,
+      "status": 200,
+      "latencia": 368,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:39:50.379Z",
+      "online": true,
+      "status": 200,
+      "latencia": 359,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:40:20.027Z",
+      "online": false,
+      "status": 0,
+      "latencia": 9,
+      "headers": {},
+      "ssl": null,
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:55:18.100Z",
+      "online": false,
+      "status": 0,
+      "latencia": 25,
+      "headers": {},
+      "ssl": null,
+      "ip": null
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:55:48.493Z",
+      "online": true,
+      "status": 200,
+      "latencia": 522,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:56:18.297Z",
+      "online": true,
+      "status": 200,
+      "latencia": 321,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:56:48.580Z",
+      "online": true,
+      "status": 200,
+      "latencia": 597,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:57:18.372Z",
+      "online": true,
+      "status": 200,
+      "latencia": 365,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    },
+    {
+      "id": "cuscus-hats",
+      "nombre": "Cuscus Hats",
+      "url": "https://cuscushats.com/",
+      "timestamp": "2026-05-23T00:57:48.307Z",
+      "online": true,
+      "status": 200,
+      "latencia": 304,
+      "headers": {
+        "server": "nginx/1.24.0 (Ubuntu)",
+        "xPoweredBy": "Next.js",
+        "hsts": null,
+        "http2": false
+      },
+      "ssl": {
+        "emisor": "Let's Encrypt",
+        "vencimiento": "2026-08-11T18:37:14.000Z",
+        "diasRestantes": 80,
+        "subject": "cuscushats.com"
+      },
+      "ip": "31.220.52.31"
+    }
+  ]
+}

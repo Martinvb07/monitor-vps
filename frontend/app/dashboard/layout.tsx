@@ -8,6 +8,7 @@ import SslBanner from '@/components/SslBanner';
 import NavDropdown from '@/components/NavDropdown';
 import { ToastProvider } from '@/components/Toast';
 import { StatusProvider, useStatus } from '@/components/StatusContext';
+import { ConfirmProvider } from '@/components/Confirm';
 
 const NAV_GROUPS = [
   {
@@ -23,9 +24,13 @@ const NAV_GROUPS = [
   {
     label: 'DevOps',
     items: [
-      { href: '/dashboard/deploys',   label: 'Deploys' },
-      { href: '/dashboard/logs',      label: 'Logs' },
-      { href: '/dashboard/terminal',  label: 'Terminal SSH' },
+      { href: '/dashboard/deploys',    label: 'Deploys' },
+      { href: '/dashboard/snippets',   label: 'Snippets' },
+      { href: '/dashboard/servidores', label: 'Servidores' },
+      { href: '/dashboard/logs',       label: 'Logs' },
+      { href: '/dashboard/terminal',   label: 'Terminal SSH' },
+      { href: '/dashboard/envfiles',   label: 'Env Editor' },
+      { href: '/dashboard/nginx',      label: 'Nginx' },
     ],
   },
   {
@@ -50,6 +55,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [downSites, setDownSites]     = useState<string[]>([]);
   const [alertCount, setAlertCount]   = useState(0);
   const [mobileOpen, setMobileOpen]   = useState(false);
+  const [openGroups, setOpenGroups]   = useState<string[]>([]);
 
   const { alerts: wsAlerts, sites: wsSites, connected: wsConnected, lastUpdate: wsLastUpdate } = useStatus();
 
@@ -83,8 +89,28 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     if (!isAuthenticated()) { router.replace('/login'); return; }
     setDark(localStorage.getItem('mhq_dark') === '1');
     setHydrated(true);
-    if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission();
+    // Registrar Service Worker y suscribirse a push si hay VAPID configurado
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      navigator.serviceWorker.register('/sw.js').then(async (reg) => {
+        try {
+          const { publicKey } = await fetch('/api/push/vapid-key').then((r) => r.json());
+          if (!publicKey) return;
+          const existing = await reg.pushManager.getSubscription();
+          if (existing) return;
+          if (Notification.permission === 'default') await Notification.requestPermission();
+          if (Notification.permission !== 'granted') return;
+          const sub = await reg.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: publicKey,
+          });
+          const token = (await import('@/lib/auth')).getToken();
+          await fetch('/api/push/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+            body: JSON.stringify(sub),
+          });
+        } catch {}
+      }).catch(() => {});
     }
   }, [router]);
 
@@ -95,6 +121,36 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     return () => clearInterval(tick);
   }, [hydrated]);
 
+  // Favicon badge con contador de alertas
+  useEffect(() => {
+    if (!hydrated) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = 32; canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const img = new Image();
+    img.src = '/icon.svg';
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, 32, 32);
+      if (alertCount > 0) {
+        const r = 10;
+        ctx.beginPath();
+        ctx.arc(24, 8, r, 0, Math.PI * 2);
+        ctx.fillStyle = '#e63319';
+        ctx.fill();
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(alertCount > 9 ? '9+' : String(alertCount), 24, 8);
+      }
+      let link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+      if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
+      link.href = canvas.toDataURL();
+    };
+    img.onerror = () => {};
+  }, [alertCount, hydrated]);
+
   useEffect(() => {
     if (!hydrated) return;
     document.body.classList.toggle('dark', dark);
@@ -103,6 +159,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <ToastProvider>
+    <ConfirmProvider>
     <StatusProvider>
     <>
       <nav className="nav">
@@ -163,20 +220,49 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </nav>
       {mobileOpen && (
         <div className="mobile-nav">
-          <Link href="/dashboard" className={`mobile-nav-link ${pathname === '/dashboard' ? 'is-active' : ''}`}
-            onClick={() => setMobileOpen(false)}>Estado</Link>
-          {NAV_GROUPS.flatMap((g) => [
-            <div key={g.label} className="mobile-nav-group">{g.label}</div>,
-            ...g.items.map((item) => (
-              <Link key={item.href} href={item.href}
-                className={`mobile-nav-link mobile-nav-sub ${pathname === item.href ? 'is-active' : ''}`}
-                onClick={() => setMobileOpen(false)}>{item.label}</Link>
-            )),
-          ])}
+          <Link href="/dashboard"
+            className={`mobile-nav-link ${pathname === '/dashboard' ? 'is-active' : ''}`}
+            onClick={() => setMobileOpen(false)}>
+            Estado
+          </Link>
+
+          {NAV_GROUPS.map((g) => {
+            const isOpen = openGroups.includes(g.label);
+            const hasActive = g.items.some(i => pathname === i.href);
+            return (
+              <div key={g.label}>
+                <button
+                  className={`mobile-nav-group-btn ${hasActive ? 'has-active' : ''}`}
+                  onClick={() => setOpenGroups(prev =>
+                    prev.includes(g.label) ? prev.filter(x => x !== g.label) : [...prev, g.label]
+                  )}
+                >
+                  <span>{g.label}</span>
+                  {g.label === 'Monitor' && alertCount > 0 && (
+                    <span className="mobile-nav-badge">{alertCount}</span>
+                  )}
+                  <span className="mobile-nav-chevron">{isOpen ? '↑' : '↓'}</span>
+                </button>
+                {isOpen && g.items.map((item) => (
+                  <Link key={item.href} href={item.href}
+                    className={`mobile-nav-link mobile-nav-sub ${pathname === item.href ? 'is-active' : ''}`}
+                    onClick={() => setMobileOpen(false)}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            );
+          })}
+
           <div className="mobile-nav-footer">
-            <button className="mobile-nav-logout" onClick={() => { clearToken(); router.push('/login'); }}>
-              Cerrar sesión →
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <button className="mobile-nav-logout" onClick={() => { clearToken(); router.push('/login'); }}>
+                Cerrar sesión →
+              </button>
+              <button className="nav-theme" type="button" onClick={() => setDark(d => !d)} style={{ opacity: 0.6 }}>
+                {dark ? '☀' : '☾'}
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -184,6 +270,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <main className="shell page">{children}</main>
     </>
     </StatusProvider>
+    </ConfirmProvider>
     </ToastProvider>
   );
 }

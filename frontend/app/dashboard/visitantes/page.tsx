@@ -75,7 +75,7 @@ export default function VisitantesPage() {
       ) : (
         <>
           {/* Stats */}
-          <div className="hist-stats reveal in" style={{ gridTemplateColumns: 'repeat(4,1fr)' }}>
+          <div className="hist-stats reveal in" style={{ '--cols': 4 } as React.CSSProperties}>
             {[
               { label: 'Requests hoy', val: data?.total ?? '—' },
               { label: 'IPs únicas', val: data?.unicos ?? '—' },

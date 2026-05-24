@@ -3,14 +3,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import { api, type Deploy } from '@/lib/api';
 import Select from '@/components/Select';
+import { useToast } from '@/components/Toast';
 
 const GH_USER = process.env.NEXT_PUBLIC_GITHUB_USER || '';
-
-const SITIOS = [
-  { id: 'cancha', label: 'ReservaTuCancha' },
-  { id: 'agro',   label: 'AgroManager Pro' },
-  { id: 'mesoft', label: 'MeSoft Store' },
-];
 
 type GHCommit = {
   sha: string;
@@ -25,12 +20,9 @@ type GHRepo = {
 };
 type RepoInfo = GHRepo & { commit: GHCommit | null };
 
-function matchSitio(name: string): string | null {
+function matchSitio(name: string, sitios: { value: string; label: string }[]): string | null {
   const n = name.toLowerCase();
-  if (n.includes('cancha') || n.includes('reserva')) return 'cancha';
-  if (n.includes('agro')) return 'agro';
-  if (n.includes('mesoft')) return 'mesoft';
-  return null;
+  return sitios.find((s) => n.includes(s.value) || n.includes(s.label.toLowerCase()))?.value ?? null;
 }
 
 function timeAgo(iso: string): string {
@@ -51,10 +43,12 @@ function formatDate(iso: string): string {
 function shortSha(sha: string) { return sha.slice(0, 7); }
 
 export default function DeploysPage() {
+  const { toast } = useToast();
   const [deploys, setDeploys]       = useState<Deploy[]>([]);
   const [scripts, setScripts]       = useState<Record<string, boolean>>({});
+  const [sitios, setSitios]         = useState<{ value: string; label: string }[]>([]);
   const [loading, setLoading]       = useState(true);
-  const [sitio, setSitio]           = useState('cancha');
+  const [sitio, setSitio]           = useState('');
   const [mensaje, setMensaje]       = useState('');
   const [running, setRunning]       = useState(false);
   const [output, setOutput]         = useState<string | null>(null);
@@ -63,12 +57,17 @@ export default function DeploysPage() {
   const [error, setError]           = useState('');
   const [repos, setRepos]           = useState<RepoInfo[]>([]);
   const [reposLoading, setReposLoading] = useState(false);
+  const [scriptModal, setScriptModal] = useState<{ sitio: string; content: string; path: string } | null>(null);
+  const [savingScript, setSavingScript] = useState(false);
 
   const fetchDeploys = useCallback(async () => {
     try {
-      const [data, sc] = await Promise.all([api.deploys(), api.deployScripts()]);
+      const [data, sc, sitesList] = await Promise.all([api.deploys(), api.deployScripts(), api.sites()]);
       setDeploys(data);
       setScripts(sc);
+      const mapped = sitesList.map((s) => ({ value: s.id, label: s.nombre }));
+      setSitios(mapped);
+      if (mapped.length > 0) setSitio((prev) => prev || mapped[0].value);
     } finally {
       setLoading(false);
     }
@@ -104,7 +103,7 @@ export default function DeploysPage() {
   }, []);
 
   function useCommit(repo: RepoInfo) {
-    const matched = matchSitio(repo.name);
+    const matched = matchSitio(repo.name, sitios);
     if (matched) setSitio(matched);
     const msg = repo.commit
       ? `${repo.commit.commit.message.split('\n')[0]} (${shortSha(repo.commit.sha)})`
@@ -148,7 +147,26 @@ export default function DeploysPage() {
   }
 
   const hasScript = scripts[sitio];
-  const sitioLabel = (id: string) => SITIOS.find((s) => s.id === id)?.label ?? id;
+  const sitioLabel = (id: string) => sitios.find((s) => s.value === id)?.label ?? id;
+
+  async function openScriptModal() {
+    const { content } = await api.deployScriptRead(sitio).catch(() => ({ content: '' }));
+    setScriptModal({ sitio, content, path: `/root/deploy_${sitio}.sh` });
+  }
+
+  async function saveScript() {
+    if (!scriptModal) return;
+    setSavingScript(true);
+    try {
+      const res = await api.deployScriptSave(scriptModal.sitio, scriptModal.content, scriptModal.path);
+      const sc = await api.deployScripts();
+      setScripts(sc);
+      setError('');
+      setScriptModal(null);
+      toast(`Guardado en ${res.path}`);
+    } catch (e) { setError(e instanceof Error ? e.message : 'Error al guardar'); }
+    finally { setSavingScript(false); }
+  }
 
   return (
     <>
@@ -182,7 +200,7 @@ export default function DeploysPage() {
           ) : (
             <div className="gh-grid">
               {repos.map((repo) => {
-                const matched = matchSitio(repo.name);
+                const matched = matchSitio(repo.name, sitios);
                 return (
                   <div key={repo.id} className="gh-card">
                     <div className="gh-card-head">
@@ -237,7 +255,7 @@ export default function DeploysPage() {
               <Select
                 value={sitio}
                 onChange={(v) => { setSitio(v); setOutput(null); setRunOk(null); }}
-                options={SITIOS.map((s) => ({ value: s.id, label: s.label }))}
+                options={sitios}
               />
             </div>
             <div className="field-group" style={{ flex: 1 }}>
@@ -264,11 +282,16 @@ export default function DeploysPage() {
             </button>
           </div>
 
-          {!hasScript && (
-            <p className="deploy-no-script">
-              Sin script configurado para este sitio — solo registro manual.
-            </p>
-          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8 }}>
+            {!hasScript && (
+              <p className="deploy-no-script" style={{ margin: 0, flex: 1 }}>
+                Sin script configurado — solo registro manual.
+              </p>
+            )}
+            <button type="button" className="btn-check-now" style={{ marginLeft: 'auto', fontSize: 11 }} onClick={openScriptModal}>
+              {hasScript ? 'Editar script →' : '+ Crear script'}
+            </button>
+          </div>
 
           {error && <p className="login-error" style={{ marginTop: 12 }}>{error}</p>}
         </form>
@@ -339,6 +362,58 @@ export default function DeploysPage() {
               </span>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Modal editor de script */}
+      {scriptModal && (
+        <div className="modal-overlay" style={{ zIndex: 100 }}>
+          <div className="modal-box" style={{ maxWidth: 900, maxHeight: '88vh' }}>
+
+            {/* Header */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 24px', borderBottom: '1px solid var(--ink)' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>
+                Script de deploy — {sitioLabel(scriptModal.sitio)}
+              </span>
+              <button onClick={() => setScriptModal(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink)', fontSize: 16, padding: 4 }}>✕</button>
+            </div>
+
+            {/* Ruta editable */}
+            <div style={{ padding: '12px 24px', borderBottom: '1px solid var(--ink)', background: 'var(--paper-2)', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink)', whiteSpace: 'nowrap', fontWeight: 600 }}>RUTA EN VPS</span>
+              <input
+                className="field-input"
+                style={{ flex: 1, fontFamily: 'monospace', fontSize: 12 }}
+                value={scriptModal.path}
+                onChange={(e) => setScriptModal({ ...scriptModal, path: e.target.value })}
+                placeholder="/root/deploy_mesoft.sh"
+              />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--muted)', whiteSpace: 'nowrap' }}>chmod +x automático</span>
+            </div>
+
+            {/* Editor */}
+            <textarea
+              value={scriptModal.content}
+              onChange={(e) => setScriptModal({ ...scriptModal, content: e.target.value })}
+              placeholder={'#!/bin/bash\nset -e\n\ncd /var/www/mi-sitio\ngit pull origin main\nnpm install --production\npm2 restart mi-app\n\necho "Deploy completado"'}
+              style={{
+                flex: 1, resize: 'none', background: '#111110', color: '#f0ece2',
+                fontFamily: '"Cascadia Code", "Fira Code", monospace', fontSize: 13, lineHeight: 1.75,
+                border: 0, outline: 'none', padding: '20px 24px', minHeight: 320,
+              }}
+            />
+
+            {/* Footer */}
+            <div style={{ padding: '14px 24px', borderTop: '1px solid var(--ink)', display: 'flex', gap: 12, justifyContent: 'flex-end', alignItems: 'center' }}>
+              {error && <span style={{ color: 'var(--down)', fontSize: 12, marginRight: 'auto' }}>{error}</span>}
+              <button className="btn-check-now" onClick={() => setScriptModal(null)}>Cancelar</button>
+              <button className="btn-deploy btn-deploy-run" onClick={saveScript} disabled={savingScript || !scriptModal.path.trim()}>
+                <span>{savingScript ? 'Guardando...' : 'Guardar en VPS'}</span>
+                <span>→</span>
+              </button>
+            </div>
+
+          </div>
         </div>
       )}
     </>

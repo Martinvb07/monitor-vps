@@ -16,6 +16,16 @@ router.get('/history/:id', (req, res) => {
   res.json(data);
 });
 
+router.get('/daily', (req, res) => {
+  const { getDaily } = require('../services/monitor');
+  res.json(getDaily());
+});
+
+router.get('/daily/:id', (req, res) => {
+  const { getDaily } = require('../services/monitor');
+  res.json(getDaily(req.params.id));
+});
+
 router.get('/comparar', (req, res) => {
   const history = getHistory();
   const latest = getLatest();
