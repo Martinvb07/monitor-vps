@@ -1,20 +1,25 @@
-const express = require('express');
-const { exec }  = require('child_process');
-const os        = require('os');
-const fs        = require('fs');
-const router    = express.Router();
+const express  = require('express');
+const { exec } = require('child_process');
+const os       = require('os');
+const fs       = require('fs');
+const router   = express.Router();
 
-// ── History buffer — last 60 points (~10 min at 10s interval) ──
-const HISTORY_MAX = 60;
-const metricsHistory = [];
+const { loadServers, getMetrics: getRemoteMetrics, sshExec } = require('../services/servers');
 
-// Accurate CPU % via /proc/stat (Linux). Falls back to load avg elsewhere.
+// ── Modo de métricas ─────────────────────────────────────────────
+// METRICS_MODE=local  → siempre local (útil cuando está deployado en el VPS)
+// METRICS_MODE=ssh    → siempre SSH al SERVER_1
+// Sin valor           → auto: SSH si no corre en Linux, local si sí
+function useSSH() {
+  const mode = process.env.METRICS_MODE;
+  if (mode === 'local') return false;
+  if (mode === 'ssh')   return true;
+  return os.platform() !== 'linux'; // auto-detect
+}
+
+// ── Métricas locales ─────────────────────────────────────────────
+
 function getCpuPct() {
-  if (process.platform !== 'linux') {
-    return Promise.resolve(
-      Math.min(100, Math.round((os.loadavg()[0] / os.cpus().length) * 100))
-    );
-  }
   return new Promise((resolve) => {
     try {
       const raw1 = fs.readFileSync('/proc/stat', 'utf8').split('\n')[0];
@@ -44,26 +49,7 @@ function getDisk() {
   });
 }
 
-async function collectAndStore() {
-  const [cpuPct, disk] = await Promise.all([getCpuPct(), getDisk()]);
-  const totalMem = os.totalmem();
-  const usedMem  = totalMem - os.freemem();
-  metricsHistory.push({
-    timestamp: new Date().toISOString(),
-    cpu:  cpuPct,
-    ram:  Math.round((usedMem / totalMem) * 100),
-    disk: disk ? disk.pct : null,
-  });
-  if (metricsHistory.length > HISTORY_MAX) metricsHistory.shift();
-}
-
-// Seed initial point and then collect every 10s
-collectAndStore();
-setInterval(collectAndStore, 10000);
-
-// ── Routes ──────────────────────────────────────────────────────
-
-router.get('/metrics', async (req, res) => {
+async function getLocalMetrics() {
   const totalMem = os.totalmem();
   const freeMem  = os.freemem();
   const usedMem  = totalMem - freeMem;
@@ -72,9 +58,9 @@ router.get('/metrics', async (req, res) => {
 
   const [cpuPct, disk] = await Promise.all([getCpuPct(), getDisk()]);
 
-  res.json({
-    cpu: { pct: cpuPct, load: loadAvg, cores: cpuCount },
-    ram: {
+  return {
+    cpu:  { pct: cpuPct, load: loadAvg, cores: cpuCount },
+    ram:  {
       total: Math.round(totalMem / 1024 / 1024),
       used:  Math.round(usedMem  / 1024 / 1024),
       free:  Math.round(freeMem  / 1024 / 1024),
@@ -84,11 +70,111 @@ router.get('/metrics', async (req, res) => {
     uptime:   os.uptime(),
     hostname: os.hostname(),
     platform: os.platform(),
-  });
+    source:   'local',
+  };
+}
+
+// ── Función unificada ────────────────────────────────────────────
+async function resolveMetrics() {
+  if (useSSH()) {
+    const servers = loadServers();
+    if (!servers.length) return getLocalMetrics(); // fallback si no hay SERVER_1
+    const metrics = await getRemoteMetrics(servers[0]);
+    return { ...metrics, source: 'ssh' };
+  }
+  return getLocalMetrics();
+}
+
+// ── History buffer ───────────────────────────────────────────────
+const HISTORY_MAX = 60;
+const metricsHistory = [];
+
+async function collectAndStore() {
+  try {
+    const m = await resolveMetrics();
+    metricsHistory.push({
+      timestamp: new Date().toISOString(),
+      cpu:    m.cpu.pct,
+      ram:    m.ram.pct,
+      disk:   m.disk ? m.disk.pct : null,
+    });
+    if (metricsHistory.length > HISTORY_MAX) metricsHistory.shift();
+  } catch { /* no romper el intervalo si SSH falla */ }
+}
+
+collectAndStore();
+setInterval(collectAndStore, 10000);
+
+// ── Routes ───────────────────────────────────────────────────────
+
+router.get('/metrics', async (req, res) => {
+  try {
+    res.json(await resolveMetrics());
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
 });
 
 router.get('/metrics/history', (req, res) => {
   res.json(metricsHistory);
+});
+
+// Indica si las métricas vienen por SSH o local
+// ── Helper: ejecutar comando local o via SSH ─────────────────────
+function runCmd(command, timeout = 15000) {
+  if (useSSH()) {
+    const servers = loadServers();
+    if (!servers.length) return Promise.reject(new Error('No hay SERVER_1 configurado'));
+    return sshExec(servers[0], command, timeout);
+  }
+  return new Promise((resolve, reject) => {
+    exec(command, { timeout }, (err, stdout) => {
+      if (err && !stdout) return reject(err);
+      resolve(stdout.trim());
+    });
+  });
+}
+
+// ── Top procesos ─────────────────────────────────────────────────
+router.get('/processes', async (req, res) => {
+  try {
+    const out = await runCmd(
+      "ps aux --sort=-%cpu | awk 'NR==1{next} NR<=21{printf \"%s|%s|%s|%s|%s|%s\\n\",$1,$2,$3,$4,$8,$11}'"
+    );
+    const processes = out.split('\n').filter(Boolean).map((line) => {
+      const [user, pid, cpu, mem, stat, ...cmdParts] = line.split('|');
+      return { user, pid, cpu: parseFloat(cpu), mem: parseFloat(mem), stat, cmd: cmdParts.join(' ') };
+    });
+    res.json(processes);
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+// ── Disk breakdown por directorio ────────────────────────────────
+router.get('/disk-breakdown', async (req, res) => {
+  try {
+    const dir = process.env.DISK_BREAKDOWN_DIR || '/var/www';
+    const out = await runCmd(`du -sh ${dir}/* 2>/dev/null | sort -rh | head -30`);
+    const entries = out.split('\n').filter(Boolean).map((line) => {
+      const [size, ...pathParts] = line.split('\t');
+      const path = pathParts.join('\t');
+      const name = path.split('/').pop() || path;
+      return { size, path, name };
+    });
+    res.json({ dir, entries });
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+router.get('/metrics/source', (req, res) => {
+  const sshMode = useSSH();
+  const servers = loadServers();
+  res.json({
+    mode:   sshMode ? 'ssh' : 'local',
+    server: sshMode && servers.length ? servers[0].name : null,
+  });
 });
 
 // Actualizar paquetes del VPS

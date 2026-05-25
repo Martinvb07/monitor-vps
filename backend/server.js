@@ -63,6 +63,7 @@ app.use('/api/push',     require('./routes/push'));
 app.use('/api/envfiles',  require('./routes/envfiles'));
 app.use('/api/nginx',     require('./routes/nginx'));
 app.use('/api/snippets',  require('./routes/snippets'));
+app.use('/api/backup',    require('./routes/backup'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

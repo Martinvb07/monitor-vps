@@ -31,6 +31,7 @@ const NAV_GROUPS = [
       { href: '/dashboard/terminal',   label: 'Terminal SSH' },
       { href: '/dashboard/envfiles',   label: 'Env Editor' },
       { href: '/dashboard/nginx',      label: 'Nginx' },
+      { href: '/dashboard/backups',    label: 'Backups' },
     ],
   },
   {

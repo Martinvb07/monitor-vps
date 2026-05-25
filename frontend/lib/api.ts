@@ -147,6 +147,8 @@ export const api = {
 
   systemMetrics: () => req<SystemMetrics>('/system/metrics'),
   systemMetricsHistory: () => req<MetricsPoint[]>('/system/metrics/history'),
+  systemProcesses: () => req<ProcessEntry[]>('/system/processes'),
+  systemDiskBreakdown: () => req<{ dir: string; entries: DiskEntry[] }>('/system/disk-breakdown'),
 
   changePassword: (currentPassword: string, newPassword: string) =>
     req<{ ok: boolean }>('/system/change-password', {
@@ -184,13 +186,33 @@ export const api = {
   serverScriptSave: (id: string, sitio: string, content: string) => req<{ ok: boolean; path: string }>(`/servers/${id}/scripts/${sitio}`, { method: 'PUT', body: JSON.stringify({ content }) }),
   serverDeploy: (id: string, sitio: string) => req<{ ok: boolean; output: string }>(`/servers/${id}/deploy/${sitio}`, { method: 'POST' }),
 
-  systemUpdate: () => {
-    const { getToken } = require('@/lib/auth');
-    return fetch(`${BASE}/system/update`, {
+  backupDetect: () => req<BackupDetect>('/backup/detect'),
+  backupList: () => req<{ backupDir: string; backups: BackupEntry[] }>('/backup'),
+  backupConfig: () => req<{ backupDir: string }>('/backup/config'),
+  backupSetConfig: (backupDir: string) => req<{ ok: boolean; backupDir: string }>('/backup/config', { method: 'POST', body: JSON.stringify({ backupDir }) }),
+  backupDetails: (type: string) => req<{ type: string; items: { name: string; meta?: string }[] }>(`/backup/details/${type}`),
+  backupRun: (types?: string[]) =>
+    fetch('/api/backup/run', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${getToken() ?? ''}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ types }),
+    }),
+
+  backupDownloadItem: (type: string, name: string) =>
+    fetch(`/api/backup/download-item?type=${encodeURIComponent(type)}&name=${encodeURIComponent(name)}`, {
+      headers: { Authorization: `Bearer ${getToken() ?? ''}` },
+    }),
+  backupDelete: (id: string) => req<{ ok: boolean }>(`/backup/${id}`, { method: 'DELETE' }),
+  backupDownloadFile: (id: string, file: string) =>
+    fetch(`/api/backup/${id}/download/${file}`, {
+      headers: { Authorization: `Bearer ${getToken() ?? ''}` },
+    }),
+
+  systemUpdate: () =>
+    fetch(`${BASE}/system/update`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${getToken() ?? ''}` },
-    });
-  },
+    }),
 };
 
 export type PortResult = {
@@ -304,6 +326,47 @@ export type MetricsPoint = {
   cpu: number;
   ram: number;
   disk: number | null;
+};
+
+export type ProcessEntry = {
+  user: string;
+  pid: string;
+  cpu: number;
+  mem: number;
+  stat: string;
+  cmd: string;
+};
+
+export type DiskEntry = {
+  size: string;
+  path: string;
+  name: string;
+};
+
+export type BackupDetect = {
+  mysql: boolean;
+  mongo: boolean;
+  postgres: boolean;
+  nginx: boolean;
+  www: boolean;
+  host: string;
+};
+
+export type BackupFile = {
+  name: string;
+  size: number;
+  sizeHuman: string;
+};
+
+export type BackupEntry = {
+  id: string;
+  timestamp: string;
+  host: string;
+  source: 'ssh' | 'local';
+  components: Record<string, { file: string; size: number; ok: boolean }>;
+  files: BackupFile[];
+  totalSize: number;
+  totalSizeHuman: string;
 };
 
 export type Note = {

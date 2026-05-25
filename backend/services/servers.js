@@ -61,29 +61,46 @@ function sshExec(serverCfg, command, timeout = 15000) {
 }
 
 async function getMetrics(serverCfg) {
-  const cmd = `
-    echo "CPU:$(cat /proc/loadavg | awk '{print $1}'):$(nproc)"
-    echo "MEM:$(free -m | awk 'NR==2{print $2":"$3":"$4}')"
-    echo "DISK:$(df -BM / | awk 'NR==2{gsub("M","",$2);gsub("M","",$3);gsub("M","",$4);print $2":"$3":"$4}')"
-    echo "UPTIME:$(cat /proc/uptime | awk '{print $1}')"
-    echo "HOST:$(hostname)"
-  `.trim().replace(/\n\s+/g, ' && ');
+  // Lee CPU con delta de /proc/stat para % real, más los 3 load avgs
+  const cmd = [
+    'echo "CPU1:$(cat /proc/stat | head -1)"',
+    'sleep 0.3',
+    'echo "CPU2:$(cat /proc/stat | head -1)"',
+    'echo "LOAD:$(cat /proc/loadavg)"',
+    'echo "CORES:$(nproc)"',
+    'echo "MEM:$(free -m | awk \'NR==2{print $2\\":\\"$3\\":\\"$4}\')"',
+    'echo "DISK:$(df -BM / | awk \'NR==2{gsub("M","",$2);gsub("M","",$3);gsub("M","",$4);print $2\\":\\"$3\\":\\"$4}\')"',
+    'echo "UPTIME:$(cat /proc/uptime | awk \'{print $1}\')"',
+    'echo "HOST:$(hostname)"',
+  ].join(' && ');
 
   const out = await sshExec(serverCfg, cmd);
   const lines = {};
   out.split('\n').forEach((l) => {
-    const [k, ...v] = l.split(':');
-    lines[k] = v.join(':');
+    const idx = l.indexOf(':');
+    if (idx !== -1) lines[l.slice(0, idx)] = l.slice(idx + 1);
   });
 
-  const [load1, cores]    = (lines.CPU  || '0:1').split(':');
+  // CPU % via /proc/stat delta
+  let cpuPct = 0;
+  try {
+    const v1 = (lines.CPU1 || '').trim().split(/\s+/).slice(1).map(Number);
+    const v2 = (lines.CPU2 || '').trim().split(/\s+/).slice(1).map(Number);
+    const total = v2.reduce((a, b) => a + b, 0) - v1.reduce((a, b) => a + b, 0);
+    const idle  = (v2[3] + (v2[4] || 0)) - (v1[3] + (v1[4] || 0));
+    cpuPct = total === 0 ? 0 : Math.min(100, Math.round(((total - idle) / total) * 100));
+  } catch { /* fallback a 0 */ }
+
+  const loadParts = (lines.LOAD || '0 0 0').split(' ');
+  const loadAvg   = [parseFloat(loadParts[0]) || 0, parseFloat(loadParts[1]) || 0, parseFloat(loadParts[2]) || 0];
+  const cores     = parseInt(lines.CORES || '1');
+
   const [memT, memU, memF] = (lines.MEM  || '0:0:0').split(':').map(Number);
   const [dskT, dskU, dskF] = (lines.DISK || '0:0:0').split(':').map(Number);
   const uptime = parseFloat(lines.UPTIME || '0');
-  const cpuPct = Math.min(100, Math.round((parseFloat(load1) / parseInt(cores)) * 100));
 
   return {
-    cpu:  { pct: cpuPct, load: [parseFloat(load1), 0, 0], cores: parseInt(cores) },
+    cpu:  { pct: cpuPct, load: loadAvg, cores },
     ram:  { total: memT, used: memU, free: memF, pct: memT ? Math.round((memU / memT) * 100) : 0 },
     disk: dskT ? { total: dskT, used: dskU, free: dskF, pct: Math.round((dskU / dskT) * 100) } : null,
     uptime,
@@ -175,4 +192,42 @@ async function runScript(serverCfg, sitioId) {
   return sshExec(serverCfg, `/root/deploy_${sitioId}.sh 2>&1`, 300000);
 }
 
-module.exports = { loadServers, sshExec, getMetrics, getPm2, restartPm2, writeScript, readScript, runScript, readFile, writeFile, listEnvFiles, listNginxConfigs };
+// Pipe SSH stdout directamente a un WriteStream local (para backups)
+function sshPipeToFile(serverCfg, command, writeStream, onProgress, timeout = 600000) {
+  return new Promise((resolve, reject) => {
+    const conn = new Client();
+    const timer = setTimeout(() => { conn.end(); reject(new Error('SSH timeout')); }, timeout);
+
+    conn.on('ready', () => {
+      conn.exec(command, (err, stream) => {
+        if (err) { clearTimeout(timer); conn.end(); return reject(err); }
+
+        stream.pipe(writeStream, { end: false });
+        stream.stderr.on('data', (d) => onProgress && onProgress(d.toString()));
+
+        stream.on('close', () => {
+          clearTimeout(timer);
+          conn.end();
+          // end() is async — wait for 'finish' before resolving so callers can stat the file
+          writeStream.end();
+          writeStream.once('finish', resolve);
+          writeStream.once('error', resolve);
+        });
+
+        stream.on('error', (e) => { clearTimeout(timer); conn.end(); reject(e); });
+        writeStream.on('error', (e) => { clearTimeout(timer); conn.end(); reject(e); });
+      });
+    });
+
+    conn.on('error', (err) => { clearTimeout(timer); reject(err); });
+
+    const auth = { host: serverCfg.host, port: serverCfg.port, username: serverCfg.user, readyTimeout: 15000 };
+    if (serverCfg.password)      auth.password   = serverCfg.password;
+    else if (serverCfg.keyPath)  auth.privateKey = require('fs').readFileSync(serverCfg.keyPath);
+    else return reject(new Error(`Servidor ${serverCfg.name}: sin credenciales`));
+
+    conn.connect(auth);
+  });
+}
+
+module.exports = { loadServers, sshExec, sshPipeToFile, getMetrics, getPm2, restartPm2, writeScript, readScript, runScript, readFile, writeFile, listEnvFiles, listNginxConfigs };

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { api, type Pm2Process, type SystemMetrics, type MetricsPoint } from '@/lib/api';
+import { api, type Pm2Process, type SystemMetrics, type MetricsPoint, type ProcessEntry, type DiskEntry } from '@/lib/api';
 import { useStatus } from '@/components/StatusContext';
 import { useToast } from '@/components/Toast';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
@@ -33,6 +33,10 @@ export default function DashboardPage() {
   const [updateOutput, setUpdateOutput] = useState('');
   const [metricsHistory, setMetricsHistory] = useState<MetricsPoint[]>([]);
   const historyRef = useRef<MetricsPoint[]>([]);
+  const [processes, setProcesses] = useState<ProcessEntry[] | null>(null);
+  const [loadingProcs, setLoadingProcs] = useState(false);
+  const [diskBreakdown, setDiskBreakdown] = useState<{ dir: string; entries: DiskEntry[] } | null>(null);
+  const [loadingDisk, setLoadingDisk] = useState(false);
 
   useEffect(() => {
     api.pm2().catch(() => []).then(setPm2);
@@ -85,6 +89,20 @@ export default function DashboardPage() {
       toast('Alerta resuelta');
     } catch { toast('Error al resolver', 'error'); }
     finally { setResolving(null); }
+  }
+
+  async function handleLoadProcesses() {
+    setLoadingProcs(true);
+    try { setProcesses(await api.systemProcesses()); }
+    catch { toast('Error al cargar procesos', 'error'); }
+    finally { setLoadingProcs(false); }
+  }
+
+  async function handleLoadDisk() {
+    setLoadingDisk(true);
+    try { setDiskBreakdown(await api.systemDiskBreakdown()); }
+    catch { toast('Error al cargar disco', 'error'); }
+    finally { setLoadingDisk(false); }
   }
 
   async function handleVpsUpdate() {
@@ -253,7 +271,15 @@ export default function DashboardPage() {
           <div className="sec-marker reveal in d2" style={{ marginTop: 48 }}>
             <span className="num">// sys</span>
             <span className="ttl">RECURSOS</span>
-            <span className="meta">{metrics.hostname}</span>
+            <span className="meta">
+              {metrics.hostname}
+              {(metrics as SystemMetrics & { source?: string }).source === 'ssh' && (
+                <span style={{ color: 'var(--up)', marginLeft: 8, fontSize: 10 }}>● via SSH</span>
+              )}
+              {(metrics as SystemMetrics & { source?: string }).source === 'local' && (
+                <span style={{ color: 'var(--muted)', marginLeft: 8, fontSize: 10 }}>● local</span>
+              )}
+            </span>
           </div>
           <div className="sites-grid reveal in d2" style={{ '--cols': 3, marginBottom: 0 } as React.CSSProperties}>
             <div className="site-card">
@@ -338,6 +364,61 @@ export default function DashboardPage() {
             </ResponsiveContainer>
           </div>
         </>
+      )}
+
+      {/* ── Top procesos ── */}
+      <div className="sec-marker reveal in d3" style={{ marginTop: 48 }}>
+        <span className="num">// proc</span>
+        <span className="ttl">TOP_PROCESOS</span>
+        <span className="meta">CPU más altos</span>
+        <button className="btn-check-now" onClick={handleLoadProcesses} disabled={loadingProcs} style={{ marginLeft: 'auto' }}>
+          {loadingProcs ? 'Cargando...' : processes ? 'Refrescar →' : 'Cargar →'}
+        </button>
+      </div>
+
+      {processes && (
+        <div className="pm2-list reveal in d3">
+          <div className="pm2-row pm2-row-head">
+            <span>Usuario</span><span>PID</span><span>CPU%</span><span>MEM%</span><span>Estado</span><span style={{ flex: 3 }}>Proceso</span>
+          </div>
+          {processes.map((p, i) => (
+            <div key={i} className="pm2-row">
+              <span style={{ color: 'var(--muted)', fontSize: 11 }}>{p.user}</span>
+              <span style={{ color: 'var(--muted)', fontSize: 11 }}>{p.pid}</span>
+              <span className={p.cpu > 50 ? 'hist-crit' : p.cpu > 20 ? 'hist-warn' : ''}>{p.cpu.toFixed(1)}%</span>
+              <span className={p.mem > 20 ? 'hist-warn' : ''}>{p.mem.toFixed(1)}%</span>
+              <span style={{ fontSize: 10, color: p.stat.startsWith('S') ? 'var(--muted)' : p.stat.startsWith('R') ? 'var(--up)' : 'var(--warn)' }}>{p.stat}</span>
+              <span style={{ flex: 3, fontSize: 11, fontFamily: 'var(--font-mono)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={p.cmd}>
+                {p.cmd.split('/').pop() || p.cmd}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── Disk breakdown ── */}
+      <div className="sec-marker reveal in d3" style={{ marginTop: 48 }}>
+        <span className="num">// disk</span>
+        <span className="ttl">USO_POR_PROYECTO</span>
+        <span className="meta">{diskBreakdown ? diskBreakdown.dir : '/var/www'}</span>
+        <button className="btn-check-now" onClick={handleLoadDisk} disabled={loadingDisk} style={{ marginLeft: 'auto' }}>
+          {loadingDisk ? 'Cargando...' : diskBreakdown ? 'Refrescar →' : 'Cargar →'}
+        </button>
+      </div>
+
+      {diskBreakdown && (
+        <div className="pm2-list reveal in d3" style={{ marginBottom: 8 }}>
+          <div className="pm2-row pm2-row-head">
+            <span>Proyecto</span><span>Tamaño</span><span style={{ flex: 3 }}>Ruta</span>
+          </div>
+          {diskBreakdown.entries.map((e, i) => (
+            <div key={i} className="pm2-row">
+              <span style={{ fontWeight: 600 }}>{e.name}</span>
+              <span style={{ color: 'var(--signal)', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{e.size}</span>
+              <span style={{ flex: 3, fontSize: 11, color: 'var(--muted)' }}>{e.path}</span>
+            </div>
+          ))}
+        </div>
       )}
 
       {/* ── VPS Update ── */}

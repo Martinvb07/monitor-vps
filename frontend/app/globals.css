@@ -1703,6 +1703,21 @@ body.dark .nav-theme-moon { display: flex; }
   flex-direction: column;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--rule);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.spinner-sm {
+  width: 10px;
+  height: 10px;
+  border-width: 1.5px;
+}
 
 @media (max-width: 768px) {
   .snippets-grid { grid-template-columns: 1fr; }
