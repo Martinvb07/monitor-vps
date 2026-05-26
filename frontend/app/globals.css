@@ -30,7 +30,7 @@ body.dark {
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--paper);
   color: var(--ink);
@@ -38,6 +38,8 @@ body {
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
@@ -1808,4 +1810,224 @@ body.dark .nav-theme-moon { display: flex; }
 @media (max-width: 480px) {
   .toast-stack { bottom: 16px; right: 16px; left: 16px; }
   .toast { min-width: 0; max-width: 100%; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   ENTERPRISE RESPONSIVE — Nivel producción SaaS
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Ultrawide (≥1920px) ─────────────────────────────── */
+@media (min-width: 1920px) {
+  .shell     { max-width: 1600px; padding: 0 64px; }
+  .nav-inner { max-width: 1600px; margin: 0 auto; padding: 0 64px; }
+  .ssl-banner { padding: 10px 64px; }
+}
+
+/* ── Wide (≥1440px, ≤1920px) ────────────────────────── */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .shell     { max-width: 1400px; padding: 0 56px; }
+  .nav-inner { padding: 0 56px; }
+  .ssl-banner { padding: 10px 56px; }
+}
+
+/* ── Tablet landscape (901px–1024px) — rellena el gap entre
+     el 48px de desktop y el 20px de ≤900px para una transición
+     más suave en la densidad del layout. */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .shell      { padding: 0 32px; }
+  .nav-inner  { padding: 0 32px; }
+  .ssl-banner { padding: 10px 32px; }
+  .page       { padding: 40px 0 72px; }
+  .site-card  { padding: 28px 32px; }
+}
+
+/* ── Tablet (≤900px) — fixes adicionales ─────────────── */
+@media (max-width: 900px) {
+  /* ► Overrides inline --cols variables con !important directo en grid-template.
+       Los inline styles pueden setear --cols pero no grid-template-columns
+       directamente, así que !important aquí gana siempre. */
+  .hist-stats { grid-template-columns: repeat(2, 1fr) !important; }
+  /* sites-grid: fuerza 1 col (matching original intent, previously broken
+     because inline --cols overrode the CSS variable rule) */
+  .sites-grid { grid-template-columns: 1fr !important; }
+  /* srv-metrics combina sites-grid pero quiere 3 cols hasta 600px */
+  .srv-metrics { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* ► Borders hist-stats en 2 columnas */
+  .hist-stat-card { border-bottom: 1px solid var(--ink); }
+  .hist-stat-card:nth-child(2n)   { border-right: 0; }
+  .hist-stat-card:nth-child(2n-1) { border-right: 1px solid var(--ink); }
+  .hist-stat-card:nth-last-child(-n+2) { border-bottom: 0; }
+
+  /* ► SSL banner aligned with shell */
+  .ssl-banner { padding: 10px 20px; }
+
+  /* ► Sites manage */
+  .sites-manage-row { grid-template-columns: 1fr 90px 36px; }
+
+  /* ► Settings */
+  .settings-row { flex-wrap: wrap; gap: 12px; }
+  .settings-card { padding: 20px 24px; }
+
+  /* ► Alert filters */
+  .alert-filters { gap: 16px; }
+}
+
+/* ── Mobile (≤768px) — fixes adicionales ─────────────── */
+@media (max-width: 768px) {
+  /* ► CRÍTICO: sec-marker .meta tiene position:absolute en base,
+       lo que rompe el layout al hacer flex-wrap en mobile.
+       Reset a static para que fluya normalmente en el flex. */
+  .sec-marker .meta {
+    position: static;
+    transform: none;
+    left: auto;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ► Override inline --cols variables con !important en grid-template.
+       Las inline style variables (style="--cols: 3") tienen mayor
+       especificidad que los media queries, pero grid-template-columns
+       con !important siempre gana. */
+  .sites-grid { grid-template-columns: 1fr !important; }
+  .hist-stats { grid-template-columns: 1fr !important; }
+
+  /* ► hist-stat-card: override el "last row" de 900px para 1-col limpio */
+  .hist-stat-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--ink); }
+  .hist-stat-card:nth-child(2n-1)      { border-right: 0; }
+  .hist-stat-card:last-child           { border-bottom: 0; border-right: 0; }
+
+  /* ► Overflow-x: auto en tablas que no tenían wrapper de scroll */
+  .vis-table         { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .seg-headers       { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ports-table       { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .alerts-full-list  { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sites-manage-list { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ► Min-widths para activar el scroll horizontal en las filas.
+       Sin min-width, las columnas 1fr se comprimen infinitamente. */
+  .vis-row           { min-width: 360px; }
+  .seg-headers-row   { min-width: 340px; }
+  .ports-row         { min-width: 460px; }
+  .alerts-full-row   { min-width: 400px; }
+  .sites-manage-row  { min-width: 360px; }
+  .hist-row          { min-width: 380px; }
+  .pm2-row           { min-width: 360px; }
+  /* deploy-row usa layout adaptativo 1fr/1fr en ≤900px, no necesita scroll */
+
+  /* ► SSL banner padding aligned con shell mobile */
+  .ssl-banner { padding: 10px 16px; }
+
+  /* ► Alert filters wrapping limpio */
+  .alert-filters { gap: 12px; flex-wrap: wrap; }
+  .filter-group  { flex-wrap: wrap; gap: 6px; }
+
+  /* ► Login compacto */
+  .login-header { padding: 24px 24px 20px; }
+  .login-form   { padding: 24px 24px 32px; }
+
+  /* ► Settings */
+  .settings-row  { flex-wrap: wrap; gap: 12px; }
+  .settings-card { padding: 20px; }
+
+  /* ► Notes area sin min-height rígido */
+  .notes-area { min-height: 240px; }
+
+  /* ► srv-metrics excepción: mantiene 3 cols en tablet pero override
+       a 1fr en mobile (600px lo manejaba antes, extendemos a 768px) */
+  .srv-metrics { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* ► Nav brand compacto */
+  .nav-brand { font-size: 16px; letter-spacing: -0.02em; }
+}
+
+/* ── ≤600px — srv-metrics a 1 col ────────────────────── */
+@media (max-width: 600px) {
+  .srv-metrics { grid-template-columns: 1fr !important; }
+}
+
+/* ── Small mobile (≤480px) — fixes adicionales ──────── */
+@media (max-width: 480px) {
+  /* ► CRÍTICO: forzar position:static en .meta (override !important) */
+  .sec-marker .meta {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+  }
+
+  /* ► QR code image responsive (ajustes page) */
+  .settings-qr { max-width: 100%; height: auto; width: auto; }
+
+  /* ► Alert filters stack completo */
+  .alert-filters { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* ► Login pantallas pequeñas */
+  .login-header { padding: 20px 16px; }
+  .login-form   { padding: 16px 16px 24px; }
+  .login-brand  { font-size: clamp(20px, 6vw, 28px); }
+
+  /* ► Settings */
+  .settings-card  { padding: 14px 16px; }
+  .settings-value { font-size: 13px; word-break: break-all; }
+
+  /* ► Hist stats número fluido */
+  .hist-stat-uptime { font-size: clamp(22px, 7vw, 40px); }
+
+  /* ► Sites manage simplificado */
+  .sites-manage-row { grid-template-columns: 1fr 36px; min-width: 0; }
+  .sites-manage-row .sites-manage-id { display: none; }
+
+  /* ► Notes area */
+  .notes-area { min-height: 180px; }
+
+  /* ► Ports table */
+  .ports-table { min-width: 0; }
+
+  /* ► Deploy terminal output */
+  .deploy-terminal { overflow: hidden; }
+
+  /* ► Alert stat card en 2x2 */
+  .alert-stat-val { font-size: clamp(28px, 8vw, 40px); }
+}
+
+/* ── Very small mobile (≤375px) ───────────────────────── */
+@media (max-width: 375px) {
+  .shell      { padding: 0 12px; }
+  .nav-inner  { padding: 0 12px; }
+  .ssl-banner { padding: 10px 12px; }
+  .page       { padding: 16px 0 48px; }
+
+  .mobile-nav-link { padding: 12px 16px; font-size: 12px; }
+  .mobile-nav-sub  { padding-left: 20px; }
+
+  .site-card       { padding: 14px 16px; }
+  .site-card-name  { font-size: 16px; }
+  .site-metric-value { font-size: 16px; }
+
+  .hist-stat-uptime { font-size: 20px; }
+  .hist-stat-card   { padding: 16px 18px; }
+
+  .nav-brand { font-size: 14px; }
+
+  .btn-term-action { padding: 8px 12px; font-size: 9px; }
+
+  .login-box { border: none; }
+  .login-header { padding: 16px 14px; }
+  .login-form   { padding: 14px 14px 20px; }
+}
+
+/* ── 320px — Mínimo absoluto ──────────────────────────── */
+@media (max-width: 320px) {
+  .shell     { padding: 0 10px; }
+  .nav-inner { padding: 0 10px; }
+
+  .site-card       { padding: 12px 14px; }
+  .site-card-name  { font-size: 15px; }
+
+  .mobile-nav-link { padding: 10px 14px; font-size: 11px; }
+
+  .hist-stat-uptime { font-size: 18px; }
+
+  .btn-deploy { font-size: 10px; padding: 8px 14px; }
 }
